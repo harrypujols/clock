@@ -4,17 +4,16 @@ new Vue({
   data: {
     message: 'Weather',
     url: 'http://api.openweathermap.org/data/2.5/weather',
-    lat: '',
-    lon: '',
+    lat: '40.71',
+    lon: '-74.01',
     units: 'imperial',
     appid: '27b9d671b0ca0fca771aff7c42a8d968',
-    city: '',
+    city: {},
     cloud: ['overcast clouds', 'scattered clouds', 'broken clouds', 'mist'],
     umbrella: ['shower rain', 'light rain', 'rain', 'thunderstorm', 'snow'],
     weather: 'clear sky',
     icon: 'icon-sun',
-    time: '',
-    query: ''
+    time: ''
   },
 
   ready: function() {
@@ -73,11 +72,10 @@ new Vue({
 
     geolocation: function() {
       var that = this
-      navigator.geolocation.getCurrentPosition(location)
-      function location(position) {
+      navigator.geolocation.getCurrentPosition( function(position) {
         that.lat = position.coords.latitude.toFixed(2)
         that.lon = position.coords.longitude.toFixed(2)
-      }
+      })
     }
   }
 
