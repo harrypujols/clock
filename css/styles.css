@@ -413,6 +413,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 5rem; }
 
 .icon {
+  font-size: 1.2rem;
   align-self: flex-start;
   margin-top: 1rem; }
 

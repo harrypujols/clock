@@ -11,7 +11,8 @@ new Vue({
     cloud: ['few clouds', 'scattered clouds', 'broken clouds', 'mist'],
     umbrella: ['shower rain', 'rain', 'thunderstorm', 'snow'],
     weather: 'clear sky',
-    icon: 'icon-sun'
+    icon: 'icon-sun',
+    time: (new Date()).getHours()
   },
 
   ready: function() {
@@ -24,6 +25,14 @@ new Vue({
         this.icon = 'icon-cloud'
       } else if (this.umbrella.indexOf(nuval) > -1) {
         this.icon = 'icon-umbrella'
+      }
+    },
+
+    time: function(nuval, olval) {
+      if (this.time > 18 && this.time < 6) {
+        if (this.icon == 'icon-sun') {
+          this.icon = 'icon-moon'
+        }
       }
     }
   },
