@@ -4,7 +4,8 @@ new Vue({
   data: {
     message: 'Weather',
     url: 'http://api.openweathermap.org/data/2.5/weather',
-    location: 'NewYork',
+    lat: '',
+    lon: '',
     units: 'imperial',
     appid: '27b9d671b0ca0fca771aff7c42a8d968',
     city: '',
@@ -17,10 +18,14 @@ new Vue({
   },
 
   ready: function() {
-    this.getData()
+    this.geolocation()
   },
 
   watch: {
+    lat: function() {
+      this.update()
+    },
+
     weather: function(nuval, olval) {
       if (this.cloud.indexOf(nuval) > -1) {
         this.icon = 'icon-cloud'
@@ -47,12 +52,13 @@ new Vue({
   },
 
   methods: {
-    getData: function() {
+    update: function() {
       this.$http({
         url: this.url,
         method: 'GET',
         params: {
-          q: this.location,
+          lat: this.lat,
+          lon: this.lon,
           units: this.units,
           appid: this.appid
         }
@@ -65,9 +71,13 @@ new Vue({
       })
     },
 
-    changeCity: function() {
-      this.location = this.query.replace(/\s/g, '')
-      this.getData()
+    geolocation: function() {
+      var that = this
+      navigator.geolocation.getCurrentPosition(location)
+      function location(position) {
+        that.lat = position.coords.latitude
+        that.lon = position.coords.longitude
+      }
     }
   }
 
