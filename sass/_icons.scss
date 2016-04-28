@@ -1,0 +1,43 @@
+@font-face {
+    font-family: 'icons';
+    src:
+        url('../fonts/icons.ttf?un0gn5') format('truetype'),
+        url('../fonts/icons.woff?un0gn5') format('woff'),
+        url('../fonts/icons.svg?un0gn5#icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-umbrella:before {
+    content: "\e060";
+}
+.icon-moon:before {
+    content: "\e061";
+}
+.icon-thermometer:before {
+    content: "\e062";
+}
+.icon-drop:before {
+    content: "\e063";
+}
+.icon-sun:before {
+    content: "\e064";
+}
+.icon-cloud:before {
+    content: "\e065";
+}

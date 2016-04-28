@@ -1,0 +1,30 @@
+@import "normalize";
+@import "icons";
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.horizontal {
+  display: flex;
+  align-items: center;
+}
+
+.main {
+  font-size: 5rem;
+}
+
+.icon {
+  align-self: flex-start;
+  margin-top: 1rem;
+}
+
+.cell {
+  margin-right: 2%;
+}
