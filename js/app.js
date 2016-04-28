@@ -10,7 +10,7 @@ new Vue({
     appid: '27b9d671b0ca0fca771aff7c42a8d968',
     city: '',
     cloud: ['overcast clouds', 'scattered clouds', 'broken clouds', 'mist'],
-    umbrella: ['shower rain', 'rain', 'thunderstorm', 'snow'],
+    umbrella: ['shower rain', 'light rain', 'rain', 'thunderstorm', 'snow'],
     weather: 'clear sky',
     icon: 'icon-sun',
     time: '',
@@ -75,8 +75,8 @@ new Vue({
       var that = this
       navigator.geolocation.getCurrentPosition(location)
       function location(position) {
-        that.lat = position.coords.latitude
-        that.lon = position.coords.longitude
+        that.lat = position.coords.latitude.toFixed(2)
+        that.lon = position.coords.longitude.toFixed(2)
       }
     }
   }
