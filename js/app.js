@@ -3,7 +3,7 @@ new Vue({
 
   data: {
     message: 'Weather',
-    url: 'http://api.openweathermap.org/data/2.5/weather?',
+    url: 'http://api.openweathermap.org/data/2.5/weather',
     location: 'NewYork',
     units: 'imperial',
     appid: '27b9d671b0ca0fca771aff7c42a8d968',
@@ -12,7 +12,8 @@ new Vue({
     umbrella: ['shower rain', 'rain', 'thunderstorm', 'snow'],
     weather: 'clear sky',
     icon: 'icon-sun',
-    time: (new Date()).getHours()
+    time: (new Date()).getHours(),
+    query: ''
   },
 
   ready: function() {
@@ -59,6 +60,11 @@ new Vue({
       }, function (response) {
         console.log('fail')
       })
+    },
+
+    changeCity: function() {
+      this.location = this.query.replace(/\s/g, '')
+      this.getData()
     }
   }
 

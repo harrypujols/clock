@@ -6,6 +6,9 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body id="app">
+  <div class="container">
+    <input v-model="query" v-on:keyup="changeCity">
+  </div>
   <div class="container horizontal">
     <h1 class="title cell">{{ city.name }}</h1>
     <h2 class="main cell">{{ city.main.temp | rounded }}F</h2>
