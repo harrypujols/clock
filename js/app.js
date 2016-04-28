@@ -37,8 +37,13 @@ new Vue({
   methods: {
     getData: function() {
       this.$http({
-        url: this.url + 'q=' + this.location + '&units=' + this.units + '&appid=' + this.appid,
-        method: 'GET'
+        url: this.url,
+        method: 'GET',
+        params: {
+          q: this.location,
+          units: this.units,
+          appid: this.appid
+        }
      }).then(function (result) {
         this.city = result.data
         this.weather = this.city.weather[0].description
