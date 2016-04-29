@@ -7,7 +7,7 @@ new Vue({
     location: 'NewYork',
     units: 'imperial',
     appid: '27b9d671b0ca0fca771aff7c42a8d968',
-    city: '',
+    city: {},
     cloud: ['overcast clouds', 'scattered clouds', 'broken clouds', 'mist'],
     umbrella: ['shower rain', 'rain', 'thunderstorm', 'snow'],
     weather: 'clear sky',
@@ -31,7 +31,7 @@ new Vue({
 
     time: function(current) {
       if (this.weather.description == 'clear sky') {
-        if (current > this.city.sys.sunrise || current < this.city.sys.sunset) {
+        if (current < this.city.sys.sunrise || current > this.city.sys.sunset) {
           this.icon = 'icon-moon'
         } else {
           this.icon = 'icon-sun'
@@ -67,7 +67,7 @@ new Vue({
 
     changeCity: function() {
       this.location = this.query.replace(/\s/g, '')
-      this.getData()
+      this.update()
     }
   }
 
