@@ -379,7 +379,7 @@ textarea {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-.icon-sun:before {
+.icon-sun:before, .icon-01d:before {
   content: "\f00d"; }
 
 .icon-thunder:before {
@@ -388,28 +388,36 @@ textarea {
 .icon-showers:before {
   content: "\f019"; }
 
-.icon-rain:before {
+.icon-rain:before, .icon-10d:before,
+.icon-10n:before {
   content: "\f01a"; }
 
-.icon-snow:before {
+.icon-snow:before, .icon-13d:before,
+.icon-13n:before {
   content: "\f01b"; }
 
-.icon-thunderstorm:before {
+.icon-thunderstorm:before, .icon-11d:before,
+.icon-11n:before {
   content: "\f01e"; }
 
-.icon-fog:before {
+.icon-fog:before, .icon-50d:before,
+.icon-50n:before {
   content: "\f021"; }
 
-.icon-moon:before {
+.icon-moon:before, .icon-01n:before {
   content: "\f02e"; }
 
-.icon-cloud:before {
+.icon-cloud:before, .icon-02d:before,
+.icon-02n:before {
   content: "\f031"; }
 
 .icon-celcius:before {
   content: "\f03c"; }
 
-.icon-overcast:before {
+.icon-overcast:before, .icon-03d:before,
+.icon-03n:before,
+.icon-04d:before,
+.icon-04n:before {
   content: "\f041"; }
 
 .icon-degree:before {
@@ -462,6 +470,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .main {
   font-size: 5rem; }
+
+.icon {
+  font-size: 1.2rem;
+  align-self: flex-start;
+  margin-top: 1rem; }
 
 .cell {
   margin-right: 2%; }

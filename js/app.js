@@ -8,36 +8,12 @@ new Vue({
     units: 'imperial',
     appid: '27b9d671b0ca0fca771aff7c42a8d968',
     city: {},
-    cloud: ['overcast clouds', 'scattered clouds', 'broken clouds', 'mist'],
-    umbrella: ['shower rain', 'rain', 'thunderstorm', 'snow'],
-    weather: 'clear sky',
-    icon: 'icon-sun',
-    time: '',
+    weather: {},
     query: ''
   },
 
   ready: function() {
     this.update()
-  },
-
-  watch: {
-    weather : function(weather) {
-      if (this.cloud.indexOf(weather.description) > -1) {
-        this.icon = 'icon-cloud'
-      } else if (this.umbrella.indexOf(weather.description) > -1) {
-        this.icon = 'icon-umbrella'
-      }
-    },
-
-    time: function(current) {
-      if (this.weather.description == 'clear sky') {
-        if (current < this.city.sys.sunrise || current > this.city.sys.sunset) {
-          this.icon = 'icon-moon'
-        } else {
-          this.icon = 'icon-sun'
-        }
-      }
-    }
   },
 
   filters: {
@@ -59,7 +35,6 @@ new Vue({
      }).then(function (result) {
         this.city = result.data
         this.weather = this.city.weather[0]
-        this.time = this.city.dt
       }, function (response) {
         console.log('fail')
       })
