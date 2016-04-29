@@ -9,11 +9,18 @@ new Vue({
     appid: '27b9d671b0ca0fca771aff7c42a8d968',
     city: {},
     weather: {},
+    time: '00:00:00',
     query: ''
   },
 
   ready: function() {
     this.update()
+  },
+
+  watch: {
+    'city.dt': function(time) {
+      this.time = new Date(time).toTimeString().split(' ')[0]
+    }
   },
 
   filters: {

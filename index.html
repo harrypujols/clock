@@ -7,7 +7,8 @@
 </head>
 <body id="app">
   <div class="container">
-    <input v-model="query" v-on:keyup="changeCity">
+    <input v-model="query">
+    <button v-on:click="changeCity">Go</button>
   </div>
   <div class="container horizontal">
     <h1 class="title cell">{{ city.name }}</h1>
