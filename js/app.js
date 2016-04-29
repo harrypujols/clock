@@ -21,16 +21,16 @@ new Vue({
   },
 
   watch: {
-    weather: function(nuval, olval) {
-      if (this.cloud.indexOf(nuval) > -1) {
+    weather : function(weather) {
+      if (this.cloud.indexOf(weather.description) > -1) {
         this.icon = 'icon-cloud'
-      } else if (this.umbrella.indexOf(nuval) > -1) {
+      } else if (this.umbrella.indexOf(weather.description) > -1) {
         this.icon = 'icon-umbrella'
       }
     },
 
     time: function(nuval, olval) {
-      if (this.weather == 'clear sky') {
+      if (this.weather.description == 'clear sky') {
         if (nuval > this.city.sys.sunrise || nuval < this.city.sys.sunset) {
           this.icon = 'icon-moon'
         } else {
@@ -58,8 +58,7 @@ new Vue({
         }
      }).then(function (result) {
         this.city = result.data
-        this.weather = this.city.weather[0].description
-        this.icon = this.city.weather[0].icon
+        this.weather = this.city.weather[0]
         this.time = this.city.dt
       }, function (response) {
         console.log('fail')
