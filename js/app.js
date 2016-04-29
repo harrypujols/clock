@@ -17,7 +17,7 @@ new Vue({
   },
 
   ready: function() {
-    this.getData()
+    this.update()
   },
 
   watch: {
@@ -29,9 +29,9 @@ new Vue({
       }
     },
 
-    time: function(nuval, olval) {
+    time: function(current) {
       if (this.weather.description == 'clear sky') {
-        if (nuval > this.city.sys.sunrise || nuval < this.city.sys.sunset) {
+        if (current > this.city.sys.sunrise || current < this.city.sys.sunset) {
           this.icon = 'icon-moon'
         } else {
           this.icon = 'icon-sun'
@@ -47,7 +47,7 @@ new Vue({
   },
 
   methods: {
-    getData: function() {
+    update: function() {
       this.$http({
         url: this.url,
         method: 'GET',
