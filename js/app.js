@@ -59,6 +59,7 @@ new Vue({
      }).then(function (result) {
         this.city = result.data
         this.weather = this.city.weather[0].description
+        this.icon = this.city.weather[0].icon
         this.time = this.city.dt
       }, function (response) {
         console.log('fail')
