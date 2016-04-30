@@ -1,3 +1,11 @@
+// define
+var Clock = Vue.extend({
+  template: '<h2>tick-tock</h2>'
+})
+
+// register
+Vue.component('clock', Clock)
+
 new Vue({
   el: '#app',
 
