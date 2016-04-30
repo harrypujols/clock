@@ -7,6 +7,7 @@ new Vue({
     lat: '40.71',
     lon: '-74.01',
     appid: '27b9d671b0ca0fca771aff7c42a8d968',
+    units: 'imperial',
     city: {},
     weather: {}
   },
