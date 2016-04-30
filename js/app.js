@@ -4,22 +4,20 @@ new Vue({
   data: {
     message: 'Weather',
     url: 'http://api.openweathermap.org/data/2.5/weather',
-    location: 'NewYork',
-    units: 'imperial',
+    lat: '40.71',
+    lon: '-74.01',
     appid: '27b9d671b0ca0fca771aff7c42a8d968',
     city: {},
-    weather: {},
-    time: '00:00:00',
-    query: ''
+    weather: {}
   },
 
   ready: function() {
-    this.update()
+    this.geolocation()
   },
 
   watch: {
-    'city.dt': function(time) {
-      this.time = new Date(time).toTimeString().split(' ')[0]
+    lat: function() {
+      this.update()
     }
   },
 
@@ -35,7 +33,8 @@ new Vue({
         url: this.url,
         method: 'GET',
         params: {
-          q: this.location,
+          lat: this.lat,
+          lon: this.lon,
           units: this.units,
           appid: this.appid
         }
@@ -47,9 +46,12 @@ new Vue({
       })
     },
 
-    changeCity: function() {
-      this.location = this.query.replace(/\s/g, '')
-      this.update()
+    geolocation: function() {
+      var that = this
+      navigator.geolocation.getCurrentPosition( function(position) {
+        that.lat = position.coords.latitude.toFixed(2)
+        that.lon = position.coords.longitude.toFixed(2)
+      })
     }
   }
 

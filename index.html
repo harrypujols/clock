@@ -7,18 +7,14 @@
 </head>
 <body id="app">
   <div class="container">
-    <input v-model="query">
-    <button v-on:click="changeCity">Go</button>
+    <h1 class="title cell">{{ weather.description | capitalize }}</h1>
   </div>
   <div class="container horizontal">
-    <h1 class="title cell">{{ city.name }}</h1>
     <h2 class="main cell">{{ city.main.temp | rounded }}F</h2>
     <div class="icon cell"><i class="icon-{{ weather.icon }}"></i></div>
-    <div class="cell">
-      <p>+<i class="icon-thermometer"></i>&nbsp;{{ city.main.temp_max | rounded }}F</p>
-      <p>-<i class="icon-thermometer"></i>&nbsp;{{ city.main.temp_min | rounded }}F</p>
-      <p>&nbsp;<i class="icon-humidity"></i>&nbsp;{{ city.main.humidity }}%</p>
-    </div>
+  </div>
+  <div class="container">
+    <clock></clock>
   </div>
   <script src="js/vue.js"></script>
  <script src="js/vue-resource.js"></script>
