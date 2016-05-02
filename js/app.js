@@ -2,40 +2,31 @@ new Vue({
   el: '#app',
 
   data: {
-    message: 'Weather',
-    url: 'http://api.openweathermap.org/data/2.5/weather',
-    location: 'NewYork',
-    units: 'imperial',
-    appid: '27b9d671b0ca0fca771aff7c42a8d968',
-    city: '',
-    cloud: ['overcast clouds', 'scattered clouds', 'broken clouds', 'mist'],
-    umbrella: ['shower rain', 'rain', 'thunderstorm', 'snow'],
-    weather: 'clear sky',
-    icon: 'icon-sun',
-    time: '',
-    query: ''
+    url: 'http://api.wunderground.com/api/',
+    lat: '40.71',
+    lon: '-74.01',
+    appid: '09d7033777846fa8',
+    city: {},
+    clock: '00:00:00',
+    weekday: new Date().getDay(),
+    hour12: true,
+    farenheit: true
   },
 
   ready: function() {
-    this.getData()
+    this.geolocation()
+    this.parseday()
   },
 
   watch: {
-    weather: function(nuval, olval) {
-      if (this.cloud.indexOf(nuval) > -1) {
-        this.icon = 'icon-cloud'
-      } else if (this.umbrella.indexOf(nuval) > -1) {
-        this.icon = 'icon-umbrella'
-      }
+    lat: function() {
+      this.update()
+      this.time()
     },
 
-    time: function(nuval, olval) {
-      if (this.weather == 'clear sky') {
-        if (nuval > this.city.sys.sunrise || nuval < this.city.sys.sunset) {
-          this.icon = 'icon-moon'
-        } else {
-          this.icon = 'icon-sun'
-        }
+    'city.icon_url': function(result) {
+      if( result.indexOf('nt') >= 0 && this.city.icon == 'clear' ) {
+        this.city.icon = 'moon'
       }
     }
   },
@@ -47,27 +38,77 @@ new Vue({
   },
 
   methods: {
-    getData: function() {
+    update: function() {
       this.$http({
-        url: this.url,
-        method: 'GET',
-        params: {
-          q: this.location,
-          units: this.units,
-          appid: this.appid
-        }
+        url: this.url + this.appid + '/conditions/q/' + this.lat + ',' + this.lon + '.json',
+        method: 'GET'
      }).then(function (result) {
-        this.city = result.data
-        this.weather = this.city.weather[0].description
-        this.time = this.city.dt
+        this.city = result.data.current_observation
       }, function (response) {
         console.log('fail')
       })
     },
 
-    changeCity: function() {
-      this.location = this.query.replace(/\s/g, '')
-      this.getData()
+    geolocation: function() {
+      var that = this
+      navigator.geolocation.getCurrentPosition( function(position) {
+        that.lat = position.coords.latitude.toFixed(2)
+        that.lon = position.coords.longitude.toFixed(2)
+      })
+    },
+
+    time: function() {
+      var today = new Date()
+      var h = today.getHours()
+      var m = today.getMinutes()
+      var s = today.getSeconds()
+      var p = 'am'
+      // h = this.parsetime(h)
+      m = this.parsetime(m)
+      s = this.parsetime(s)
+
+      if (this.hour12) {
+        // if (h > 12) {
+        //   p = 'pm'
+        // }
+        h = h % 12 || 12
+        this.clock = h + ":" + m + ":" + s // + p
+      } else {
+        this.clock = h + ":" + m + ":" + s
+      }
+
+      var t = setTimeout(this.time, 500)
+    },
+
+    parsetime: function(i) {
+      if (i < 10) {i = "0" + i}
+      return i
+    },
+
+    parseday: function() {
+      switch (this.weekday) {
+          case 0:
+              this.weekday = "Sun";
+              break;
+          case 1:
+              this.weekday = "Mon";
+              break;
+          case 2:
+              this.weekday = "Tue";
+              break;
+          case 3:
+              this.weekday = "Wed";
+              break;
+          case 4:
+              this.weekday = "Thu";
+              break;
+          case 5:
+              this.weekday = "Fri";
+              break;
+          case 6:
+              this.weekday = "Sat";
+              break;
+      }
     }
   }
 

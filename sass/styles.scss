@@ -9,11 +9,13 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 10px;
+  text-align: center;
 }
 
 .horizontal {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .main {
@@ -28,4 +30,37 @@ h1, h2, h3, h4, h5, h6 {
 
 .cell {
   margin-right: 2%;
+}
+
+.icon-sunny,
+.icon-clear {
+  @extend .icon-sun;
+}
+
+.icon-mostlysunny,
+.icon-partlysunny,
+.icon-partlycloudy {
+  @extend .icon-cloud;
+}
+
+.icon-cloudy,
+.icon-mostlycloudy,
+.icon-hazy,
+.icon-nt_hazy,
+[class^="icon-chance"] {
+  @extend .icon-overcast;
+}
+
+.icon-tstorms {
+  @extend .icon-showers;
+}
+
+.icon-flurries,
+.icon-sleet,
+.icon-snow {
+  @extend .icon-snow;
+}
+
+.icon-fog {
+  @extend .icon-fog;
 }

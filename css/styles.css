@@ -362,7 +362,7 @@ textarea {
 
 @font-face {
   font-family: 'icons';
-  src: url("../fonts/icons.ttf?un0gn5") format("truetype"), url("../fonts/icons.woff?un0gn5") format("woff"), url("../fonts/icons.svg?un0gn5#icons") format("svg");
+  src: url("../fonts/icons.ttf?2obxfx") format("truetype"), url("../fonts/icons.woff?2obxfx") format("woff"), url("../fonts/icons.svg?2obxfx#icons") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -379,23 +379,83 @@ textarea {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-.icon-umbrella:before {
-  content: "\e060"; }
+.icon-sun:before, .icon-sunny:before,
+.icon-clear:before {
+  content: "\f00d"; }
+
+.icon-thunder:before {
+  content: "\f016"; }
+
+.icon-showers:before, .icon-tstorms:before {
+  content: "\f019"; }
+
+.icon-rain:before {
+  content: "\f01a"; }
+
+.icon-flurries:before,
+.icon-sleet:before,
+.icon-snow:before {
+  content: "\f01b"; }
+
+.icon-thunderstorm:before {
+  content: "\f01e"; }
+
+.icon-fog:before {
+  content: "\f021"; }
 
 .icon-moon:before {
-  content: "\e061"; }
+  content: "\f02e"; }
+
+.icon-cloud:before, .icon-mostlysunny:before,
+.icon-partlysunny:before,
+.icon-partlycloudy:before {
+  content: "\f031"; }
+
+.icon-celcius:before {
+  content: "\f03c"; }
+
+.icon-overcast:before, .icon-cloudy:before,
+.icon-mostlycloudy:before,
+.icon-hazy:before,
+.icon-nt_hazy:before,
+[class^="icon-chance"]:before {
+  content: "\f041"; }
+
+.icon-degree:before {
+  content: "\f042"; }
+
+.icon-farenheit:before {
+  content: "\f045"; }
+
+.icon-sunrise:before {
+  content: "\f046"; }
+
+.icon-sunset:before {
+  content: "\f047"; }
+
+.icon-wind:before {
+  content: "\f050"; }
 
 .icon-thermometer:before {
-  content: "\e062"; }
+  content: "\f053"; }
 
-.icon-drop:before {
-  content: "\e063"; }
+.icon-temperature:before {
+  content: "\f054"; }
 
-.icon-sun:before {
-  content: "\e064"; }
+.icon-mercury:before {
+  content: "\f055"; }
 
-.icon-cloud:before {
-  content: "\e065"; }
+.icon-humidity:before {
+  content: "\f078"; }
+
+.icon-pressure:before {
+  content: "\f079"; }
+
+.icon-umbrella:before {
+  content: "\f084"; }
+
+.icon-cog:before {
+  content: "\e023"; }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0; }
@@ -403,11 +463,13 @@ h1, h2, h3, h4, h5, h6 {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 10px; }
+  padding: 0 10px;
+  text-align: center; }
 
 .horizontal {
   display: flex;
-  align-items: center; }
+  align-items: center;
+  justify-content: center; }
 
 .main {
   font-size: 5rem; }

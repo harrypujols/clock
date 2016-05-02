@@ -2,21 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>Weather</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body id="app">
+  <div class="main container">
+    <h2>{{ clock }}</h2>
+  </div>
   <div class="container">
-    <input v-model="query" v-on:keyup="changeCity">
+    <h1 class="title cell">{{ city.display_location.city }}</h1>
+    <!-- <h2 class="title cell">{{ city.weather }}</h2> -->
   </div>
   <div class="container horizontal">
-    <h1 class="title cell">{{ city.name }}</h1>
-    <h2 class="main cell">{{ city.main.temp | rounded }}F</h2>
-    <div class="icon cell"><i class="{{ icon }}"></i></div>
-    <div class="cell">
-      <p>+<i class="icon-thermometer"></i>{{ city.main.temp_max | rounded }}F</p>
-      <p>-<i class="icon-thermometer"></i>{{ city.main.temp_min | rounded }}F</p>
-      <p>&nbsp;<i class="icon-drop"></i>&nbsp;{{ city.main.humidity }}%</p>
+      <h2 v-if="farenheit" class="main cell">{{ city.temp_f | rounded }}<i class="icon-farenheit"></i></h2>
+      <h2 v-else class="main cell">{{ city.temp_c | rounded }}<i class="icon-celcius"></i></h2>
+    <div class="icon cell">
+      <div><i class="icon-{{ city.icon }}"></i></div>
+      <div>&nbsp;<i class="icon-humidity"></i>&nbsp;{{ city.relative_humidity }}</div>
     </div>
   </div>
   <script src="js/vue.js"></script>
