@@ -64,19 +64,19 @@ new Vue({
 
       if (this.format == '12hr') {
 
-        if (h > 12) {
-          p = 'pm'
-        }
+        // if (h > 12) {
+        //   p = 'pm'
+        // }
 
         h = h % 12 || 12
       }
 
-      h = this.parsetime(h)
+      // h = this.parsetime(h)
       m = this.parsetime(m)
       s = this.parsetime(s)
 
       if (this.format == '12hr') {
-        this.clock = h + ":" + m + ":" + s + p
+        this.clock = h + ":" + m + ":" + s // + p
       } else {
         this.clock = h + ":" + m + ":" + s
       }
