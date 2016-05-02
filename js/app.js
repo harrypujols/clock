@@ -8,7 +8,7 @@ new Vue({
     appid: '09d7033777846fa8',
     city: {},
     clock: '00:00:00',
-    pm: true,
+    hour12: true,
     farenheit: true
   },
 
@@ -65,7 +65,7 @@ new Vue({
       m = this.parsetime(m)
       s = this.parsetime(s)
 
-      if (this.pm) {
+      if (this.hour12) {
         // if (h > 12) {
         //   p = 'pm'
         // }
