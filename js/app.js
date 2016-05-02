@@ -9,11 +9,7 @@ new Vue({
     units: 'imperial',
     appid: '27b9d671b0ca0fca771aff7c42a8d968',
     city: {},
-    cloud: ['overcast clouds', 'scattered clouds', 'broken clouds', 'mist'],
-    umbrella: ['shower rain', 'light rain', 'rain', 'thunderstorm', 'snow'],
-    weather: 'clear sky',
-    icon: 'icon-sun',
-    time: ''
+    weather: 'clear sky'
   },
 
   ready: function() {
@@ -23,24 +19,6 @@ new Vue({
   watch: {
     lat: function() {
       this.update()
-    },
-
-    weather: function(nuval, olval) {
-      if (this.cloud.indexOf(nuval) > -1) {
-        this.icon = 'icon-cloud'
-      } else if (this.umbrella.indexOf(nuval) > -1) {
-        this.icon = 'icon-umbrella'
-      }
-    },
-
-    time: function(nuval, olval) {
-      if (this.weather == 'clear sky') {
-        if (nuval > this.city.sys.sunrise || nuval < this.city.sys.sunset) {
-          this.icon = 'icon-moon'
-        } else {
-          this.icon = 'icon-sun'
-        }
-      }
     }
   },
 
@@ -63,8 +41,7 @@ new Vue({
         }
      }).then(function (result) {
         this.city = result.data
-        this.weather = this.city.weather[0].description
-        this.time = this.city.dt
+        this.weather = this.city.weather[0]
       }, function (response) {
         console.log('fail')
       })

@@ -29,3 +29,48 @@ h1, h2, h3, h4, h5, h6 {
 .cell {
   margin-right: 2%;
 }
+
+.icon-01d {
+  @extend .icon-sun;
+}
+
+.icon-01n {
+  @extend .icon-moon;
+}
+
+.icon-02d,
+.icon-02n {
+  @extend .icon-cloud;
+}
+
+.icon-03d,
+.icon-03n,
+.icon-04d,
+.icon-04n {
+  @extend .icon-overcast;
+}
+
+.icon-09d,
+.icon-09n {
+  @extend .icon-shower;
+}
+
+.icon-10d,
+.icon-10n {
+  @extend .icon-rain;
+}
+
+.icon-11d,
+.icon-11n {
+  @extend .icon-thunderstorm;
+}
+
+.icon-13d,
+.icon-13n {
+  @extend .icon-snow;
+}
+
+.icon-50d,
+.icon-50n {
+  @extend .icon-fog;
+}

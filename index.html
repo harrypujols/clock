@@ -6,15 +6,9 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body id="app">
-  <div class="container horizontal">
-    <h1 class="title cell">{{ city.name }}</h1>
+  <div class="container">
+    <h1 class="title cell">{{ weather.description | capitalize }}</h1>
     <h2 class="main cell">{{ city.main.temp | rounded }}F</h2>
-    <div class="icon cell"><i class="{{ icon }}"></i></div>
-    <div class="cell">
-      <p>+<i class="icon-thermometer"></i>{{ city.main.temp_max | rounded }}F</p>
-      <p>-<i class="icon-thermometer"></i>{{ city.main.temp_min | rounded }}F</p>
-      <p>&nbsp;<i class="icon-drop"></i>&nbsp;{{ city.main.humidity }}%</p>
-    </div>
   </div>
   <script src="js/vue.js"></script>
  <script src="js/vue-resource.js"></script>
