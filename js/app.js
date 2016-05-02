@@ -20,8 +20,8 @@ new Vue({
       this.time()
     },
 
-    'city.icon_url': function(change) {
-      if( change.indexOf('nt') >= 0 && this.city.icon == 'clear'){
+    'city.icon_url': function(result) {
+      if( result.indexOf('nt') >= 0 && this.city.icon == 'clear' ) {
         this.city.icon = 'moon'
       }
     }
@@ -58,6 +58,7 @@ new Vue({
       var h = today.getHours() % 12 || 12
       var m = today.getMinutes()
       var s = today.getSeconds()
+      h = this.parsetime(h)
       m = this.parsetime(m)
       s = this.parsetime(s)
       this.clock = h + ":" + m + ":" + s
