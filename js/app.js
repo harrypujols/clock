@@ -8,8 +8,8 @@ new Vue({
     appid: '09d7033777846fa8',
     city: {},
     clock: '00:00:00',
-    format: '12hr',
-    degrees: 'farenheit'
+    pm: true,
+    farenheit: true
   },
 
   ready: function() {
@@ -61,21 +61,15 @@ new Vue({
       var m = today.getMinutes()
       var s = today.getSeconds()
       var p = 'am'
-
-      if (this.format == '12hr') {
-
-        // if (h > 12) {
-        //   p = 'pm'
-        // }
-
-        h = h % 12 || 12
-      }
-
       // h = this.parsetime(h)
       m = this.parsetime(m)
       s = this.parsetime(s)
 
-      if (this.format == '12hr') {
+      if (this.pm) {
+        // if (h > 12) {
+        //   p = 'pm'
+        // }
+        h = h % 12 || 12
         this.clock = h + ":" + m + ":" + s // + p
       } else {
         this.clock = h + ":" + m + ":" + s
