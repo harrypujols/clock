@@ -16,8 +16,8 @@
     <h2 class="title cell">{{ city.weather }}</h2>
   </div>
   <div class="container horizontal">
-      <h2 v-if="farenheit" class="main cell">{{ city.temp_f | rounded }}F</h2>
-      <h2 v-else class="main cell">{{ city.temp_c | rounded }}C</h2>
+      <h2 v-if="farenheit" class="main cell">{{ city.temp_f | rounded }}<i class="icon-farenheit"></i></h2>
+      <h2 v-else class="main cell">{{ city.temp_c | rounded }}<i class="icon-celcius"></i></h2>
     <div class="icon cell">
       <i class="icon-{{ city.icon }}"></i>
     </div>
