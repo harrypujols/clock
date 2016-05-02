@@ -8,12 +8,14 @@ new Vue({
     appid: '09d7033777846fa8',
     city: {},
     clock: '00:00:00',
+    weekday: new Date().getDay(),
     hour12: true,
     farenheit: true
   },
 
   ready: function() {
     this.geolocation()
+    this.parseday()
   },
 
   watch: {
@@ -81,6 +83,32 @@ new Vue({
     parsetime: function(i) {
       if (i < 10) {i = "0" + i}
       return i
+    },
+
+    parseday: function() {
+      switch (this.weekday) {
+          case 0:
+              this.weekday = "Sun";
+              break;
+          case 1:
+              this.weekday = "Mon";
+              break;
+          case 2:
+              this.weekday = "Tue";
+              break;
+          case 3:
+              this.weekday = "Wed";
+              break;
+          case 4:
+              this.weekday = "Thu";
+              break;
+          case 5:
+              this.weekday = "Fri";
+              break;
+          case 6:
+              this.weekday = "Sat";
+              break;
+      }
     }
   }
 
