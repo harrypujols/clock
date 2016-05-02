@@ -30,47 +30,58 @@ h1, h2, h3, h4, h5, h6 {
   margin-right: 2%;
 }
 
-.icon-01d {
+.icon-sunny,
+.icon-clear {
   @extend .icon-sun;
 }
 
-.icon-01n {
+.icon-nt_sunny,
+.icon-nt_clear {
   @extend .icon-moon;
 }
 
-.icon-02d,
-.icon-02n {
+.icon-mostlysunny,
+.icon-nt_mostlysunny,
+.icon-partlysunny,
+.icon-nt_partlysunny,
+.icon-partlycloudy,
+.icon-nt_partlycloudy {
   @extend .icon-cloud;
 }
 
-.icon-03d,
-.icon-03n,
-.icon-04d,
-.icon-04n {
+.icon-cloudy,
+.icon-nt_cloudy,
+.icon-mostlycloudy,
+.icon-nt_mostlycloudy {
   @extend .icon-overcast;
 }
 
-.icon-09d,
-.icon-09n {
-  @extend .icon-shower;
-}
-
-.icon-10d,
-.icon-10n {
+.icon-chancerain,
+.icon-nt_chancerain {
   @extend .icon-rain;
 }
 
-.icon-11d,
-.icon-11n {
+.icon-chancetstorms,
+.icon-nt_chancetstorms {
   @extend .icon-thunderstorm;
 }
 
-.icon-13d,
-.icon-13n {
+.icon-flurries,
+.icon-nt_flurries,
+.icon-chanceflurries,
+.icon-nt_chanceflurries,
+.icon-sleet,
+.icon-nt_sleet,
+.icon-chancesleet,
+.icon-nt_chancesleet,
+.icon-snow,
+.icon-nt_snow,
+.icon-chancesnow,
+.icon-nt_chancesnow {
   @extend .icon-snow;
 }
 
-.icon-50d,
-.icon-50n {
+.icon-hazy,
+.icon-nt_hazy {
   @extend .icon-fog;
 }

@@ -10,15 +10,18 @@
     <h2>{{ clock }}</h2>
   </div>
   <div class="container">
-    <h1 class="title cell">{{ weather.description | capitalize }}</h1>
+    <h1 class="title cell">{{ city.display_location.city | capitalize }}</h1>
+  </div>
+  <div class="container">
+    <h2 class="title cell">{{ city.weather | capitalize }}</h2>
   </div>
   <div class="container horizontal">
-    <h2 class="main cell">{{ city.main.temp | rounded }}F</h2>
+    <h2 class="main cell">{{ city.temp_f | rounded }}F</h2>
     <div class="icon cell">
-      <i class="icon-{{ weather.icon }}"></i>
+      <i class="icon-{{ city.icon }}"></i>
     </div>
     <div class="cell">
-      <p>&nbsp;<i class="icon-humidity"></i>&nbsp;{{ city.main.humidity }}%</p>
+      <p>&nbsp;<i class="icon-humidity"></i>&nbsp;{{ city.relative_humidity }}</p>
     </div>
   </div>
   <script src="js/vue.js"></script>

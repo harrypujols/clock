@@ -3,10 +3,10 @@ new Vue({
 
   data: {
     message: 'Weather',
-    url: 'http://api.openweathermap.org/data/2.5/weather',
+    url: 'http://api.wunderground.com/api/',
     lat: '40.71',
     lon: '-74.01',
-    appid: '27b9d671b0ca0fca771aff7c42a8d968',
+    appid: '09d7033777846fa8',
     units: 'imperial',
     city: {},
     weather: {},
@@ -33,17 +33,10 @@ new Vue({
   methods: {
     update: function() {
       this.$http({
-        url: this.url,
-        method: 'GET',
-        params: {
-          lat: this.lat,
-          lon: this.lon,
-          units: this.units,
-          appid: this.appid
-        }
+        url: this.url + this.appid + '/conditions/q/' + this.lat + ',' + this.lon + '.json',
+        method: 'GET'
      }).then(function (result) {
-        this.city = result.data
-        this.weather = this.city.weather[0]
+        this.city = result.data.current_observation
       }, function (response) {
         console.log('fail')
       })
