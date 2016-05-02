@@ -463,13 +463,13 @@ h1, h2, h3, h4, h5, h6 {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 10px; }
-  .container.main {
-    text-align: center; }
+  padding: 0 10px;
+  text-align: center; }
 
 .horizontal {
   display: flex;
-  align-items: center; }
+  align-items: center;
+  justify-content: center; }
 
 .main {
   font-size: 5rem; }
