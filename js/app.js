@@ -2,15 +2,13 @@ new Vue({
   el: '#app',
 
   data: {
-    message: 'Weather',
     url: 'http://api.wunderground.com/api/',
     lat: '40.71',
     lon: '-74.01',
     appid: '09d7033777846fa8',
-    units: 'imperial',
     city: {},
     weather: {},
-    clock: '12:00:00'
+    clock: '00:00:00'
   },
 
   ready: function() {

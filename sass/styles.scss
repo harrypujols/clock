@@ -52,7 +52,9 @@ h1, h2, h3, h4, h5, h6 {
 .icon-cloudy,
 .icon-nt_cloudy,
 .icon-mostlycloudy,
-.icon-nt_mostlycloudy {
+.icon-nt_mostlycloudy,
+.icon-hazy,
+.icon-nt_hazy {
   @extend .icon-overcast;
 }
 
@@ -60,7 +62,8 @@ h1, h2, h3, h4, h5, h6 {
 .icon-nt_chancerain {
   @extend .icon-rain;
 }
-
+.icon-tstorms,
+.icon-chancetstorms,
 .icon-chancetstorms,
 .icon-nt_chancetstorms {
   @extend .icon-thunderstorm;
@@ -81,7 +84,7 @@ h1, h2, h3, h4, h5, h6 {
   @extend .icon-snow;
 }
 
-.icon-hazy,
-.icon-nt_hazy {
+.icon-fog,
+.icon-nt_fog {
   @extend .icon-fog;
 }

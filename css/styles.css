@@ -407,12 +407,13 @@ textarea {
 .icon-nt_chancesnow:before {
   content: "\f01b"; }
 
-.icon-thunderstorm:before, .icon-chancetstorms:before,
+.icon-thunderstorm:before, .icon-tstorms:before,
+.icon-chancetstorms:before,
 .icon-nt_chancetstorms:before {
   content: "\f01e"; }
 
-.icon-fog:before, .icon-hazy:before,
-.icon-nt_hazy:before {
+.icon-fog:before,
+.icon-nt_fog:before {
   content: "\f021"; }
 
 .icon-moon:before, .icon-nt_sunny:before,
@@ -433,7 +434,9 @@ textarea {
 .icon-overcast:before, .icon-cloudy:before,
 .icon-nt_cloudy:before,
 .icon-mostlycloudy:before,
-.icon-nt_mostlycloudy:before {
+.icon-nt_mostlycloudy:before,
+.icon-hazy:before,
+.icon-nt_hazy:before {
   content: "\f041"; }
 
 .icon-degree:before {

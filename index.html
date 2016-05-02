@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>Weather</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body id="app">
@@ -10,10 +10,10 @@
     <h2>{{ clock }}</h2>
   </div>
   <div class="container">
-    <h1 class="title cell">{{ city.display_location.city | capitalize }}</h1>
+    <h1 class="title cell">{{ city.display_location.city }}</h1>
   </div>
   <div class="container">
-    <h2 class="title cell">{{ city.weather | capitalize }}</h2>
+    <h2 class="title cell">{{ city.weather }}</h2>
   </div>
   <div class="container horizontal">
     <h2 class="main cell">{{ city.temp_f | rounded }}F</h2>
