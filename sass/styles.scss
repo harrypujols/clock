@@ -35,49 +35,30 @@ h1, h2, h3, h4, h5, h6 {
   @extend .icon-sun;
 }
 
-.icon-nt_sunny,
-.icon-nt_clear {
-  @extend .icon-moon;
-}
-
 .icon-mostlysunny,
-.icon-nt_mostlysunny,
 .icon-partlysunny,
-.icon-nt_partlysunny,
-.icon-partlycloudy,
-.icon-nt_partlycloudy {
+.icon-partlycloudy {
   @extend .icon-cloud;
 }
 
 .icon-cloudy,
-.icon-nt_cloudy,
 .icon-mostlycloudy,
-.icon-nt_mostlycloudy,
 .icon-hazy,
 .icon-nt_hazy,
-[class^="icon-chance"],
-[class^="icon-nt_chance"] {
+[class^="icon-chance"] {
   @extend .icon-overcast;
 }
 
-.icon-chancerain,
-.icon-nt_chancerain {
-  @extend .icon-rain;
-}
 .icon-tstorms {
-  @extend .icon-thunderstorm;
+  @extend .icon-showers;
 }
 
 .icon-flurries,
-.icon-nt_flurries,
 .icon-sleet,
-.icon-nt_sleet,
-.icon-snow,
-.icon-nt_snow {
+.icon-snow {
   @extend .icon-snow;
 }
 
-.icon-fog,
-.icon-nt_fog {
+.icon-fog {
   @extend .icon-fog;
 }

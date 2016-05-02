@@ -386,51 +386,39 @@ textarea {
 .icon-thunder:before {
   content: "\f016"; }
 
-.icon-showers:before {
+.icon-showers:before, .icon-tstorms:before {
   content: "\f019"; }
 
-.icon-rain:before, .icon-chancerain:before,
-.icon-nt_chancerain:before {
+.icon-rain:before {
   content: "\f01a"; }
 
 .icon-flurries:before,
-.icon-nt_flurries:before,
 .icon-sleet:before,
-.icon-nt_sleet:before,
-.icon-snow:before,
-.icon-nt_snow:before {
+.icon-snow:before {
   content: "\f01b"; }
 
-.icon-thunderstorm:before, .icon-tstorms:before {
+.icon-thunderstorm:before {
   content: "\f01e"; }
 
-.icon-fog:before,
-.icon-nt_fog:before {
+.icon-fog:before {
   content: "\f021"; }
 
-.icon-moon:before, .icon-nt_sunny:before,
-.icon-nt_clear:before {
+.icon-moon:before {
   content: "\f02e"; }
 
 .icon-cloud:before, .icon-mostlysunny:before,
-.icon-nt_mostlysunny:before,
 .icon-partlysunny:before,
-.icon-nt_partlysunny:before,
-.icon-partlycloudy:before,
-.icon-nt_partlycloudy:before {
+.icon-partlycloudy:before {
   content: "\f031"; }
 
 .icon-celcius:before {
   content: "\f03c"; }
 
 .icon-overcast:before, .icon-cloudy:before,
-.icon-nt_cloudy:before,
 .icon-mostlycloudy:before,
-.icon-nt_mostlycloudy:before,
 .icon-hazy:before,
 .icon-nt_hazy:before,
-[class^="icon-chance"]:before,
-[class^="icon-nt_chance"]:before {
+[class^="icon-chance"]:before {
   content: "\f041"; }
 
 .icon-degree:before {

@@ -18,6 +18,12 @@ new Vue({
     lat: function() {
       this.update()
       this.time()
+    },
+
+    'city.icon_url': function(change) {
+      if( change.indexOf('nt') >= 0 && this.city.icon == 'clear'){
+        this.city.icon = 'moon'
+      }
     }
   },
 
@@ -59,7 +65,7 @@ new Vue({
     },
 
     parsetime: function(i) {
-      if (i < 10) {i = "0" + i}  // add zero in front of numbers < 10
+      if (i < 10) {i = "0" + i}
       return i
     }
 
