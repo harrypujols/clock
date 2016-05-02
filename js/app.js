@@ -7,7 +7,9 @@ new Vue({
     lon: '-74.01',
     appid: '09d7033777846fa8',
     city: {},
-    clock: '00:00:00'
+    clock: '00:00:00',
+    format: '12hr',
+    degrees: 'farenheit'
   },
 
   ready: function() {
@@ -55,13 +57,30 @@ new Vue({
 
     time: function() {
       var today = new Date()
-      var h = today.getHours() % 12 || 12
+      var h = today.getHours()
       var m = today.getMinutes()
       var s = today.getSeconds()
+      var p = 'am'
+
+      if (this.format == '12hr') {
+
+        if (h > 12) {
+          p = 'pm'
+        }
+
+        h = h % 12 || 12
+      }
+
       h = this.parsetime(h)
       m = this.parsetime(m)
       s = this.parsetime(s)
-      this.clock = h + ":" + m + ":" + s
+
+      if (this.format == '12hr') {
+        this.clock = h + ":" + m + ":" + s + p
+      } else {
+        this.clock = h + ":" + m + ":" + s
+      }
+
       var t = setTimeout(this.time, 500)
     },
 
@@ -69,8 +88,6 @@ new Vue({
       if (i < 10) {i = "0" + i}
       return i
     }
-
-
   }
 
 });
