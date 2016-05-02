@@ -362,7 +362,7 @@ textarea {
 
 @font-face {
   font-family: 'icons';
-  src: url("../fonts/icons.ttf?un0gn5") format("truetype"), url("../fonts/icons.woff?un0gn5") format("woff"), url("../fonts/icons.svg?un0gn5#icons") format("svg");
+  src: url("../fonts/icons.ttf?2obxfx") format("truetype"), url("../fonts/icons.woff?2obxfx") format("woff"), url("../fonts/icons.svg?2obxfx#icons") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -379,23 +379,82 @@ textarea {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-.icon-umbrella:before {
-  content: "\e060"; }
+.icon-sun:before, .icon-01d:before {
+  content: "\f00d"; }
 
-.icon-moon:before {
-  content: "\e061"; }
+.icon-thunder:before {
+  content: "\f016"; }
+
+.icon-showers:before {
+  content: "\f019"; }
+
+.icon-rain:before, .icon-10d:before,
+.icon-10n:before {
+  content: "\f01a"; }
+
+.icon-snow:before, .icon-13d:before,
+.icon-13n:before {
+  content: "\f01b"; }
+
+.icon-thunderstorm:before, .icon-11d:before,
+.icon-11n:before {
+  content: "\f01e"; }
+
+.icon-fog:before, .icon-50d:before,
+.icon-50n:before {
+  content: "\f021"; }
+
+.icon-moon:before, .icon-01n:before {
+  content: "\f02e"; }
+
+.icon-cloud:before, .icon-02d:before,
+.icon-02n:before {
+  content: "\f031"; }
+
+.icon-celcius:before {
+  content: "\f03c"; }
+
+.icon-overcast:before, .icon-03d:before,
+.icon-03n:before,
+.icon-04d:before,
+.icon-04n:before {
+  content: "\f041"; }
+
+.icon-degree:before {
+  content: "\f042"; }
+
+.icon-farenheit:before {
+  content: "\f045"; }
+
+.icon-sunrise:before {
+  content: "\f046"; }
+
+.icon-sunset:before {
+  content: "\f047"; }
+
+.icon-wind:before {
+  content: "\f050"; }
 
 .icon-thermometer:before {
-  content: "\e062"; }
+  content: "\f053"; }
 
-.icon-drop:before {
-  content: "\e063"; }
+.icon-temperature:before {
+  content: "\f054"; }
 
-.icon-sun:before {
-  content: "\e064"; }
+.icon-mercury:before {
+  content: "\f055"; }
 
-.icon-cloud:before {
-  content: "\e065"; }
+.icon-humidity:before {
+  content: "\f078"; }
+
+.icon-pressure:before {
+  content: "\f079"; }
+
+.icon-umbrella:before {
+  content: "\f084"; }
+
+.icon-cog:before {
+  content: "\e023"; }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0; }

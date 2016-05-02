@@ -6,10 +6,11 @@ new Vue({
     url: 'http://api.openweathermap.org/data/2.5/weather',
     lat: '40.71',
     lon: '-74.01',
-    units: 'imperial',
     appid: '27b9d671b0ca0fca771aff7c42a8d968',
+    units: 'imperial',
     city: {},
-    weather: 'clear sky'
+    weather: {},
+    clock: '12:00:00'
   },
 
   ready: function() {
@@ -19,6 +20,7 @@ new Vue({
   watch: {
     lat: function() {
       this.update()
+      this.time()
     }
   },
 
@@ -53,7 +55,25 @@ new Vue({
         that.lat = position.coords.latitude.toFixed(2)
         that.lon = position.coords.longitude.toFixed(2)
       })
+    },
+
+    time: function() {
+      var today = new Date()
+      var h = today.getHours()
+      var m = today.getMinutes()
+      var s = today.getSeconds()
+      m = this.parsetime(m)
+      s = this.parsetime(s)
+      this.clock = h + ":" + m + ":" + s
+      var t = setTimeout(this.time, 500)
+    },
+
+    parsetime: function(i) {
+      if (i < 10) {i = "0" + i}  // add zero in front of numbers < 10
+      return i
     }
+
+
   }
 
 });
