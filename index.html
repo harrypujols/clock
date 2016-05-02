@@ -11,18 +11,14 @@
   </div>
   <div class="container">
     <h1 class="title cell">{{ city.display_location.city }}</h1>
-  </div>
-  <div class="container">
-    <h2 class="title cell">{{ city.weather }}</h2>
+    <!-- <h2 class="title cell">{{ city.weather }}</h2> -->
   </div>
   <div class="container horizontal">
       <h2 v-if="farenheit" class="main cell">{{ city.temp_f | rounded }}<i class="icon-farenheit"></i></h2>
       <h2 v-else class="main cell">{{ city.temp_c | rounded }}<i class="icon-celcius"></i></h2>
     <div class="icon cell">
-      <i class="icon-{{ city.icon }}"></i>
-    </div>
-    <div class="cell">
-      <p>&nbsp;<i class="icon-humidity"></i>&nbsp;{{ city.relative_humidity }}</p>
+      <div><i class="icon-{{ city.icon }}"></i></div>
+      <div>&nbsp;<i class="icon-humidity"></i>&nbsp;{{ city.relative_humidity }}</div>
     </div>
   </div>
   <script src="js/vue.js"></script>
