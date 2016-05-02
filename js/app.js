@@ -10,17 +10,17 @@ new Vue({
     units: 'imperial',
     city: {},
     weather: {},
-    clock: ''
+    clock: '12:00:00'
   },
 
   ready: function() {
     this.geolocation()
-    this.time()
   },
 
   watch: {
     lat: function() {
       this.update()
+      this.time()
     }
   },
 

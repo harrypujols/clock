@@ -6,15 +6,15 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body id="app">
+  <div class="main container">
+    <h2>{{ clock }}</h2>
+  </div>
   <div class="container">
     <h1 class="title cell">{{ weather.description | capitalize }}</h1>
   </div>
   <div class="container horizontal">
     <h2 class="main cell">{{ city.main.temp | rounded }}F</h2>
     <div class="icon cell"><i class="icon-{{ weather.icon }}"></i></div>
-  </div>
-  <div class="container">
-    <h2>{{ clock }}</h2>
   </div>
   <script src="js/vue.js"></script>
  <script src="js/vue-resource.js"></script>
