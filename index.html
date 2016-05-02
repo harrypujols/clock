@@ -14,7 +14,12 @@
   </div>
   <div class="container horizontal">
     <h2 class="main cell">{{ city.main.temp | rounded }}F</h2>
-    <div class="icon cell"><i class="icon-{{ weather.icon }}"></i></div>
+    <div class="icon cell">
+      <i class="icon-{{ weather.icon }}"></i>
+    </div>
+    <div class="cell">
+      <p>&nbsp;<i class="icon-humidity"></i>&nbsp;{{ city.main.humidity }}%</p>
+    </div>
   </div>
   <script src="js/vue.js"></script>
  <script src="js/vue-resource.js"></script>
