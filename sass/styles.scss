@@ -54,7 +54,9 @@ h1, h2, h3, h4, h5, h6 {
 .icon-mostlycloudy,
 .icon-nt_mostlycloudy,
 .icon-hazy,
-.icon-nt_hazy {
+.icon-nt_hazy,
+[class^="icon-chance"],
+[class^="icon-nt_chance"] {
   @extend .icon-overcast;
 }
 
@@ -62,25 +64,16 @@ h1, h2, h3, h4, h5, h6 {
 .icon-nt_chancerain {
   @extend .icon-rain;
 }
-.icon-tstorms,
-.icon-chancetstorms,
-.icon-chancetstorms,
-.icon-nt_chancetstorms {
+.icon-tstorms {
   @extend .icon-thunderstorm;
 }
 
 .icon-flurries,
 .icon-nt_flurries,
-.icon-chanceflurries,
-.icon-nt_chanceflurries,
 .icon-sleet,
 .icon-nt_sleet,
-.icon-chancesleet,
-.icon-nt_chancesleet,
 .icon-snow,
-.icon-nt_snow,
-.icon-chancesnow,
-.icon-nt_chancesnow {
+.icon-nt_snow {
   @extend .icon-snow;
 }
 

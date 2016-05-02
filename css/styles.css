@@ -395,21 +395,13 @@ textarea {
 
 .icon-flurries:before,
 .icon-nt_flurries:before,
-.icon-chanceflurries:before,
-.icon-nt_chanceflurries:before,
 .icon-sleet:before,
 .icon-nt_sleet:before,
-.icon-chancesleet:before,
-.icon-nt_chancesleet:before,
 .icon-snow:before,
-.icon-nt_snow:before,
-.icon-chancesnow:before,
-.icon-nt_chancesnow:before {
+.icon-nt_snow:before {
   content: "\f01b"; }
 
-.icon-thunderstorm:before, .icon-tstorms:before,
-.icon-chancetstorms:before,
-.icon-nt_chancetstorms:before {
+.icon-thunderstorm:before, .icon-tstorms:before {
   content: "\f01e"; }
 
 .icon-fog:before,
@@ -436,7 +428,9 @@ textarea {
 .icon-mostlycloudy:before,
 .icon-nt_mostlycloudy:before,
 .icon-hazy:before,
-.icon-nt_hazy:before {
+.icon-nt_hazy:before,
+[class^="icon-chance"]:before,
+[class^="icon-nt_chance"]:before {
   content: "\f041"; }
 
 .icon-degree:before {
