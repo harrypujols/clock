@@ -7,7 +7,6 @@ new Vue({
     lon: '-74.01',
     appid: '09d7033777846fa8',
     city: {},
-    weather: {},
     clock: '00:00:00'
   },
 
@@ -50,7 +49,7 @@ new Vue({
 
     time: function() {
       var today = new Date()
-      var h = today.getHours()
+      var h = today.getHours() % 12 || 12
       var m = today.getMinutes()
       var s = today.getSeconds()
       m = this.parsetime(m)
