@@ -6,22 +6,35 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body id="app">
-  <div class="main container">
-    <h2>{{ clock }}</h2>
-  </div>
-  <div class="container">
-    <h1 class="title cell">{{ city.display_location.city }}</h1>
-    <!-- <h2 class="title cell">{{ city.weather }}</h2> -->
-  </div>
-  <div class="container horizontal">
-      <h2 v-if="farenheit" class="main cell">{{ city.temp_f | rounded }}<i class="icon-farenheit"></i></h2>
-      <h2 v-else class="main cell">{{ city.temp_c | rounded }}<i class="icon-celcius"></i></h2>
-    <div class="icon cell">
-      <div><i class="icon-{{ city.icon }}"></i></div>
-      <div>&nbsp;<i class="icon-humidity"></i>&nbsp;{{ city.relative_humidity }}</div>
+<div id="outer-wrapper">
+  <div id="wrapper" v-bind:class="{ expanded : expand }">
+    <div id="pushover-menu" class='inverted'>
+
     </div>
+    <!-- main content -->
+    <!-- <button class='unstyled' v-on:click="expand ? true : false"><i class="icon-cog"></i></button> -->
+    <input type="checkbox" id="toggleclass" v-model="expand">
+    <label for="toggleclass"></label>
+    <div class="main container">
+      <h2>{{ clock }}</h2>
+    </div>
+    <div class="container">
+      <h1 class="title cell">{{ city.display_location.city }}</h1>
+    </div>
+    <div class="container horizontal">
+        <h2 v-if="farenheit" class="main cell">{{ city.temp_f | rounded }}<i class="icon-farenheit"></i></h2>
+        <h2 v-else class="main cell">{{ city.temp_c | rounded }}<i class="icon-celcius"></i></h2>
+      <div class="icon cell">
+        <div class="weather"><i class="icon-{{ city.icon }}"></i></div>
+        <div>&nbsp;<i class="icon-humidity"></i>&nbsp;{{ city.relative_humidity }}</div>
+      </div>
+    </div>
+
+    <!-- main content -->
   </div>
-  <script src="js/vue.js"></script>
+</div>
+
+ <script src="js/vue.js"></script>
  <script src="js/vue-resource.js"></script>
  <script src="js/app.js"></script>
 </body>

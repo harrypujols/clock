@@ -10,7 +10,8 @@ new Vue({
     clock: '00:00:00',
     weekday: new Date().getDay(),
     hour12: true,
-    farenheit: true
+    farenheit: true,
+    prefs: false
   },
 
   ready: function() {

@@ -25,11 +25,43 @@ h1, h2, h3, h4, h5, h6 {
 .icon {
   font-size: 1.2rem;
   align-self: flex-start;
-  margin-top: 1rem;
+  margin-top: .5rem;
+}
+
+.icon .weather {
+  font-size: 2rem;
+  margin-bottom: .5rem;
 }
 
 .cell {
   margin-right: 2%;
+}
+
+.inverted {
+  color: white;
+  background: black;
+}
+
+#outer-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+#wrapper {
+  transform: translateX(0);
+  transition: transform .6s ease;
+  &.expanded {
+    transform: translateX(186px);
+  }
+}
+
+#pushover-menu {
+  height: 100%;
+  width: 186px;
+  position: absolute;
+  top: 0;
+  left: -186px;
 }
 
 .icon-sunny,
