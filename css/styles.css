@@ -510,3 +510,27 @@ sub {
   position: absolute;
   top: 0;
   left: -186px; }
+
+#toggleclass {
+  display: none; }
+
+.pref {
+  visibility: hidden; }
+  .pref + label {
+    display: block;
+    width: 3.125rem;
+    height: 0.625rem;
+    border-radius: 1.25rem;
+    border: 0.125rem solid black;
+    position: relative; }
+    .pref + label:before {
+      position: absolute;
+      top: -50%;
+      content: '';
+      background: black;
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: 0.625rem;
+      right: 0; }
+  .pref:checked + label:before {
+    left: 0; }

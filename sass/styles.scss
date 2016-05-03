@@ -1,6 +1,12 @@
 @import "normalize";
 @import "icons";
 
+$base-font-size: 16px;
+@function rem($size) {
+  $remSize: $size / $base-font-size;
+  @return $remSize * 1rem;
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
@@ -67,6 +73,41 @@ sub {
   top: 0;
   left: -186px;
 }
+
+#toggleclass {
+  display: none;
+}
+
+// pref button
+$activeColor: red;
+
+.pref {
+  visibility: hidden;
+  + label {
+    display: block;
+    width: rem(50px);
+    height: rem(10px);
+    border-radius: rem(20px);
+    border: rem(2px) solid black;
+    position: relative;
+
+    &:before {
+      position: absolute;
+      top: -50%;
+      content: '';
+      background: black;
+      width: rem(20px);
+      height: rem(20px);
+      border-radius: rem(10px);
+      right: 0;
+    }
+  }
+
+  &:checked + label:before {
+    left: 0;
+  }
+}
+//
 
 .icon-sunny,
 .icon-clear {
