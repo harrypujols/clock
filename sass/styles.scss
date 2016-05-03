@@ -78,6 +78,14 @@ h1, h2, h3, h4, h5, h6 {
 
 #toggleclass {
   display: none;
+
+  + label {
+    cursor: pointer;
+  }
+
+  + label:active {
+    color: grey;
+  }
 }
 
 .pref-panel {
@@ -96,6 +104,7 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: rem(20px);
     border: rem(2px) solid black;
     position: relative;
+    cursor: pointer;
 
     &:before {
       position: absolute;

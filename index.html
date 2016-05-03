@@ -8,7 +8,7 @@
 <body id="app">
 <input type="checkbox" id="toggleclass" v-model="expand">
 <label for="toggleclass"><i class="icon-cog"></i></label>
-<div id="outer-wrapper">
+<div id="outer-wrapper" v-cloak>
   <div id="wrapper" v-bind:class="{ expanded : expand }">
     <div id="pushover-menu">
       <div class="pref-panel">

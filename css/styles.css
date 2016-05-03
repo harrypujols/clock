@@ -514,6 +514,10 @@ h1, h2, h3, h4, h5, h6 {
 
 #toggleclass {
   display: none; }
+  #toggleclass + label {
+    cursor: pointer; }
+  #toggleclass + label:active {
+    color: grey; }
 
 .pref-panel {
   padding: 0 1.25rem; }
@@ -529,7 +533,8 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.875rem;
     border-radius: 1.25rem;
     border: 0.125rem solid black;
-    position: relative; }
+    position: relative;
+    cursor: pointer; }
     .pref + label:before {
       position: absolute;
       top: 0;
