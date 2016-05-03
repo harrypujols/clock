@@ -10,7 +10,8 @@ new Vue({
     clock: '00:00:00',
     weekday: new Date().getDay(),
     hour12: true,
-    farenheit: true
+    farenheit: true,
+    pm: false
   },
 
   ready: function() {
@@ -62,21 +63,18 @@ new Vue({
       var h = today.getHours()
       var m = today.getMinutes()
       var s = today.getSeconds()
-      var p = 'am'
-      // h = this.parsetime(h)
       m = this.parsetime(m)
       s = this.parsetime(s)
 
-      if (this.hour12) {
-        // if (h > 12) {
-        //   p = 'pm'
-        // }
-        h = h % 12 || 12
-        this.clock = h + ":" + m + ":" + s // + p
-      } else {
-        this.clock = h + ":" + m + ":" + s
+      if (h >= 12) {
+        this.pm = true
       }
 
+      if (this.hour12) {
+        h = h % 12 || 12
+      }
+
+      this.clock = h + ":" + m + ":" + s
       var t = setTimeout(this.time, 500)
     },
 

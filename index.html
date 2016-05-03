@@ -8,7 +8,7 @@
 <body id="app">
 <div id="outer-wrapper">
   <div id="wrapper" v-bind:class="{ expanded : expand }">
-    <div id="pushover-menu" class='inverted'>
+    <div id="pushover-menu">
       <div>
         <input type="checkbox" id="toggletime" v-model="hour12" checked="checked">
         <label for="toggletime"></label>
@@ -19,11 +19,12 @@
       </div>
     </div>
     <!-- main content -->
-    <!-- <button class='unstyled' v-on:click="expand ? true : false"><i class="icon-cog"></i></button> -->
     <input type="checkbox" id="toggleclass" v-model="expand">
     <label for="toggleclass"></label>
     <div class="main container">
-      <h2>{{ clock }}</h2>
+      <h2>{{ clock }}
+        <!-- <sub v-if="hour12">{{ pm ? 'PM' : 'AM'}}</sub> -->
+      </h2>
     </div>
     <div class="container">
       <h1 class="title cell">{{ city.display_location.city }}</h1>
