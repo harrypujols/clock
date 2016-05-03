@@ -400,6 +400,7 @@ textarea {
 .icon-thunderstorm:before {
   content: "\f01e"; }
 
+.icon-hazy:before,
 .icon-fog:before {
   content: "\f021"; }
 
@@ -416,8 +417,6 @@ textarea {
 
 .icon-overcast:before, .icon-cloudy:before,
 .icon-mostlycloudy:before,
-.icon-hazy:before,
-.icon-nt_hazy:before,
 [class^="icon-chance"]:before {
   content: "\f041"; }
 

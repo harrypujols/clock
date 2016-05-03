@@ -130,8 +130,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .icon-cloudy,
 .icon-mostlycloudy,
-.icon-hazy,
-.icon-nt_hazy,
 [class^="icon-chance"] {
   @extend .icon-overcast;
 }
@@ -146,6 +144,7 @@ h1, h2, h3, h4, h5, h6 {
   @extend .icon-snow;
 }
 
+.icon-hazy,
 .icon-fog {
   @extend .icon-fog;
 }
