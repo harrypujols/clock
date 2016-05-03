@@ -11,7 +11,8 @@ new Vue({
     weekday: new Date().getDay(),
     hour12: true,
     farenheit: true,
-    pm: false
+    pm: false,
+    expand: false
   },
 
   ready: function() {
