@@ -517,7 +517,7 @@ h1, h2, h3, h4, h5, h6 {
   display: none; }
 
 .pref-panel {
-  padding: 1.25rem; }
+  padding: 0 1.25rem; }
 
 .pref {
   visibility: hidden; }
