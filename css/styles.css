@@ -527,6 +527,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0.125rem 0.25rem 0.125rem 0.125rem;
     width: 2.5rem;
     height: 1rem;
+    font-size: 0.875rem;
     border-radius: 1.25rem;
     border: 0.125rem solid black;
     position: relative; }
