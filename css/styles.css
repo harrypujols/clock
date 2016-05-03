@@ -460,8 +460,10 @@ textarea {
 h1, h2, h3, h4, h5, h6 {
   margin: 0; }
 
-sub {
-  bottom: auto; }
+.sup {
+  top: -5rem;
+  left: -2rem;
+  font-size: 1rem; }
 
 .container {
   max-width: 1200px;

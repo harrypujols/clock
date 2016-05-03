@@ -23,7 +23,7 @@
     <label for="toggleclass"><i class="icon-cog"></i></label>
     <div class="main container">
       <h2>{{ clock }}
-        <!-- <sub v-if="hour12">{{ pm ? 'PM' : 'AM'}}</sub> -->
+        <sup class="sup" v-if="hour12">{{ pm ? 'PM' : 'AM'}}</sup>
       </h2>
     </div>
     <div class="container">
