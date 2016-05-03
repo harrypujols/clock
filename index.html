@@ -9,13 +9,13 @@
 <div id="outer-wrapper">
   <div id="wrapper" v-bind:class="{ expanded : expand }">
     <div id="pushover-menu">
-      <div>
+      <div class="pref-panel">
         <input type="checkbox" id="toggletime" v-model="hour12" checked="checked" class="time pref">
-        <label for="toggletime"></label>
+        <label for="toggletime"><span>24</span><span>12</span></label>
       </div>
-      <div>
+      <div class="pref-panel">
         <input type="checkbox" id="toggledegree" v-model="farenheit" checked="checked" class="degree pref">
-        <label for="toggledegree"></label>
+        <label for="toggledegree"><span>C</span><span>F</span></label>
       </div>
     </div>
     <!-- main content -->

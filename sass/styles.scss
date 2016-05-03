@@ -62,38 +62,41 @@ sub {
   transform: translateX(0);
   transition: transform .6s ease;
   &.expanded {
-    transform: translateX(186px);
+    transform: translateX(rem(186px));
   }
 }
 
 #pushover-menu {
   height: 100%;
-  width: 186px;
+  width: rem(186px);
   position: absolute;
   top: 0;
-  left: -186px;
+  left: rem(-186px);
 }
 
 #toggleclass {
   display: none;
 }
 
-// pref button
-$activeColor: red;
+.pref-panel {
+  padding: rem(20px);
+}
 
 .pref {
   visibility: hidden;
   + label {
-    display: block;
-    width: rem(50px);
-    height: rem(10px);
+    display: flex;
+    justify-content: space-between;
+    padding: rem(2px) rem(4px) rem(2px) rem(2px);
+    width: rem(40px);
+    height: rem(16px);
     border-radius: rem(20px);
     border: rem(2px) solid black;
     position: relative;
 
     &:before {
       position: absolute;
-      top: -50%;
+      top: 0;
       content: '';
       background: black;
       width: rem(20px);
@@ -101,6 +104,7 @@ $activeColor: red;
       border-radius: rem(10px);
       right: 0;
     }
+
   }
 
   &:checked + label:before {

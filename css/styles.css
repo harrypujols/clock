@@ -502,30 +502,35 @@ sub {
   transform: translateX(0);
   transition: transform .6s ease; }
   #wrapper.expanded {
-    transform: translateX(186px); }
+    transform: translateX(11.625rem); }
 
 #pushover-menu {
   height: 100%;
-  width: 186px;
+  width: 11.625rem;
   position: absolute;
   top: 0;
-  left: -186px; }
+  left: -11.625rem; }
 
 #toggleclass {
   display: none; }
 
+.pref-panel {
+  padding: 1.25rem; }
+
 .pref {
   visibility: hidden; }
   .pref + label {
-    display: block;
-    width: 3.125rem;
-    height: 0.625rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.125rem 0.25rem 0.125rem 0.125rem;
+    width: 2.5rem;
+    height: 1rem;
     border-radius: 1.25rem;
     border: 0.125rem solid black;
     position: relative; }
     .pref + label:before {
       position: absolute;
-      top: -50%;
+      top: 0;
       content: '';
       background: black;
       width: 1.25rem;
