@@ -9,7 +9,14 @@
 <div id="outer-wrapper">
   <div id="wrapper" v-bind:class="{ expanded : expand }">
     <div id="pushover-menu" class='inverted'>
-
+      <div>
+        <input type="checkbox" id="toggletime" v-model="hour12" checked="checked">
+        <label for="toggletime"></label>
+      </div>
+      <div>
+        <input type="checkbox" id="toggledegree" v-model="farenheit" checked="checked">
+        <label for="toggledegree"></label>
+      </div>
     </div>
     <!-- main content -->
     <!-- <button class='unstyled' v-on:click="expand ? true : false"><i class="icon-cog"></i></button> -->
