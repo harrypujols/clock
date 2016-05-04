@@ -11,13 +11,13 @@ new Vue({
     weekday: new Date().getDay(),
     month: new Date().getMonth(),
     date: new Date().getDate(),
-    hour12: true,
-    farenheit: true,
+    prefs: {},
     pm: false,
     expand: false
   },
 
   ready: function() {
+    this.settings()
     this.geolocation()
     this.parsedate()
   },
@@ -26,6 +26,14 @@ new Vue({
     lat: function() {
       this.update()
       this.time()
+    },
+
+    'prefs.farenheit': function() {
+      localStorage.setItem('preferences', JSON.stringify(this.prefs))
+    },
+
+    'prefs.hour12': function() {
+      localStorage.setItem('preferences', JSON.stringify(this.prefs))
     },
 
     'city.icon_url': function(result) {
@@ -73,7 +81,7 @@ new Vue({
         this.pm = true
       }
 
-      if (this.hour12) {
+      if (this.prefs.hour12) {
         h = h % 12 || 12
       }
 
@@ -110,7 +118,7 @@ new Vue({
               this.weekday = "Sat"
               break;
       }
-      
+
       switch (this.month) {
           case 0:
               this.month = "Jan"
@@ -148,6 +156,14 @@ new Vue({
           case 11:
               this.month = "Dec"
               break
+      }
+    },
+
+    settings: function() {
+      var result = localStorage.getItem('preferences')
+      this.prefs = JSON.parse(result)
+      if (this.prefs == null) {
+        this.prefs = { hour12: true, farenheit: true }
       }
     }
   }

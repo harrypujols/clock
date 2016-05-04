@@ -12,27 +12,31 @@
   <div id="wrapper" v-bind:class="{ expanded : expand }">
     <div id="pushover-menu">
       <div class="pref-panel">
-        <input type="checkbox" id="toggletime" v-model="hour12" checked="checked" class="pref">
+        <input type="checkbox" id="toggletime" v-model="prefs.hour12" class="pref">
         <label for="toggletime"><span>24</span><span>12</span></label>
       </div>
       <div class="pref-panel">
-        <input type="checkbox" id="toggledegree" v-model="farenheit" checked="checked" class="pref">
+        <input type="checkbox" id="toggledegree" v-model="prefs.farenheit" class="pref">
         <label for="toggledegree"><span>C</span><span>F</span></label>
       </div>
     </div>
     <!-- main content -->
     <div class="container">
       <h2 class="main">{{ clock }}
-        <sup class="sup" v-if="hour12">{{ pm ? 'PM' : 'AM'}}</sup>
+        <sup class="sup" v-if="prefs.hour12">{{ pm ? 'PM' : 'AM'}}</sup>
       </h2>
     </div>
     <div class="container">
-      <h1 class="title cell">{{ city.display_location.city }}</h1>
+      <b class="title cell">{{ city.display_location.city }}</b>
       <span>{{ weekday }}, {{ month }}, {{ date }}</span>
     </div>
     <div class="container horizontal">
-        <h2 v-if="farenheit" class="main cell">{{ city.temp_f | rounded }}<i class="icon-farenheit"></i></h2>
-        <h2 v-else class="main cell">{{ city.temp_c | rounded }}<i class="icon-celcius"></i></h2>
+        <h2 v-if="prefs.farenheit" class="main cell">
+          {{ city.temp_f | rounded }}<i class="icon-farenheit"></i>
+        </h2>
+        <h2 v-else class="main cell">
+          {{ city.temp_c | rounded }}<i class="icon-celcius"></i>
+        </h2>
       <div class="icon cell">
         <div class="weather"><i class="icon-{{ city.icon }}"></i></div>
         <div>&nbsp;<i class="icon-humidity"></i>&nbsp;{{ city.relative_humidity }}</div>

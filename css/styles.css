@@ -460,8 +460,8 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0; }
 
 .sup {
-  top: -5rem;
-  left: -2rem;
+  top: -2.5rem;
+  left: -1rem;
   font-size: 1rem; }
 
 .container {
