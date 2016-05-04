@@ -400,6 +400,7 @@ textarea {
 .icon-thunderstorm:before {
   content: "\f01e"; }
 
+.icon-hazy:before,
 .icon-fog:before {
   content: "\f021"; }
 
@@ -416,8 +417,6 @@ textarea {
 
 .icon-overcast:before, .icon-cloudy:before,
 .icon-mostlycloudy:before,
-.icon-hazy:before,
-.icon-nt_hazy:before,
 [class^="icon-chance"]:before {
   content: "\f041"; }
 
@@ -460,6 +459,11 @@ textarea {
 h1, h2, h3, h4, h5, h6 {
   margin: 0; }
 
+.sup {
+  top: -2.5rem;
+  left: -1rem;
+  font-size: 1rem; }
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -477,7 +481,69 @@ h1, h2, h3, h4, h5, h6 {
 .icon {
   font-size: 1.2rem;
   align-self: flex-start;
-  margin-top: 1rem; }
+  margin-top: .5rem; }
+
+.icon .weather {
+  font-size: 2rem;
+  margin-bottom: .5rem; }
 
 .cell {
   margin-right: 2%; }
+
+.inverted {
+  color: white;
+  background: black; }
+
+#outer-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden; }
+
+#wrapper {
+  transform: translateX(0);
+  transition: transform .6s ease; }
+  #wrapper.expanded {
+    transform: translateX(11.625rem); }
+
+#pushover-menu {
+  height: 100%;
+  width: 11.625rem;
+  position: absolute;
+  top: 0;
+  left: -11.625rem; }
+
+#toggleclass {
+  display: none; }
+  #toggleclass + label {
+    cursor: pointer; }
+  #toggleclass + label:active {
+    color: grey; }
+
+.pref-panel {
+  padding: 0 1.25rem; }
+
+.pref {
+  visibility: hidden; }
+  .pref + label {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.125rem 0.25rem 0.125rem 0.125rem;
+    width: 2.5rem;
+    height: 1rem;
+    font-size: 0.875rem;
+    border-radius: 1.25rem;
+    border: 0.125rem solid black;
+    position: relative;
+    cursor: pointer; }
+    .pref + label:before {
+      position: absolute;
+      top: 0;
+      content: '';
+      background: black;
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: 0.625rem;
+      transition: transform .2s ease;
+      transform: translateX(118%); }
+  .pref:checked + label:before {
+    transform: translateX(-8%); }

@@ -1,8 +1,20 @@
 @import "normalize";
 @import "icons";
 
+$base-font-size: 16px;
+@function rem($size) {
+  $remSize: $size / $base-font-size;
+  @return $remSize * 1rem;
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
+}
+
+.sup {
+  top: -2.5rem;
+  left: -1rem;
+  font-size: rem(16px);
 }
 
 .container {
@@ -19,18 +31,100 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .main {
-  font-size: 5rem;
+    font-size: 5rem;
 }
 
 .icon {
   font-size: 1.2rem;
   align-self: flex-start;
-  margin-top: 1rem;
+  margin-top: .5rem;
+}
+
+.icon .weather {
+  font-size: 2rem;
+  margin-bottom: .5rem;
 }
 
 .cell {
   margin-right: 2%;
 }
+
+.inverted {
+  color: white;
+  background: black;
+}
+
+#outer-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+#wrapper {
+  transform: translateX(0);
+  transition: transform .6s ease;
+  &.expanded {
+    transform: translateX(rem(186px));
+  }
+}
+
+#pushover-menu {
+  height: 100%;
+  width: rem(186px);
+  position: absolute;
+  top: 0;
+  left: rem(-186px);
+}
+
+#toggleclass {
+  display: none;
+
+  + label {
+    cursor: pointer;
+  }
+
+  + label:active {
+    color: grey;
+  }
+}
+
+.pref-panel {
+  padding: 0 rem(20px);
+}
+
+.pref {
+  visibility: hidden;
+  + label {
+    display: flex;
+    justify-content: space-between;
+    padding: rem(2px) rem(4px) rem(2px) rem(2px);
+    width: rem(40px);
+    height: rem(16px);
+    font-size: rem(14px);
+    border-radius: rem(20px);
+    border: rem(2px) solid black;
+    position: relative;
+    cursor: pointer;
+
+    &:before {
+      position: absolute;
+      top: 0;
+      content: '';
+      background: black;
+      width: rem(20px);
+      height: rem(20px);
+      border-radius: rem(10px);
+      transition: transform .2s ease;
+      transform: translateX(118%);
+    }
+
+  }
+
+  &:checked + label:before {
+    transform: translateX(-8%);
+  }
+}
+//
 
 .icon-sunny,
 .icon-clear {
@@ -45,8 +139,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .icon-cloudy,
 .icon-mostlycloudy,
-.icon-hazy,
-.icon-nt_hazy,
 [class^="icon-chance"] {
   @extend .icon-overcast;
 }
@@ -61,6 +153,7 @@ h1, h2, h3, h4, h5, h6 {
   @extend .icon-snow;
 }
 
+.icon-hazy,
 .icon-fog {
   @extend .icon-fog;
 }

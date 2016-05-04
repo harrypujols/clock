@@ -9,19 +9,31 @@ new Vue({
     city: {},
     clock: '00:00:00',
     weekday: new Date().getDay(),
-    hour12: true,
-    farenheit: true
+    month: new Date().getMonth(),
+    date: new Date().getDate(),
+    prefs: {},
+    pm: false,
+    expand: false
   },
 
   ready: function() {
+    this.settings()
     this.geolocation()
-    this.parseday()
+    this.parsedate()
   },
 
   watch: {
     lat: function() {
       this.update()
       this.time()
+    },
+
+    'prefs.farenheit': function() {
+      localStorage.setItem('preferences', JSON.stringify(this.prefs))
+    },
+
+    'prefs.hour12': function() {
+      localStorage.setItem('preferences', JSON.stringify(this.prefs))
     },
 
     'city.icon_url': function(result) {
@@ -62,21 +74,18 @@ new Vue({
       var h = today.getHours()
       var m = today.getMinutes()
       var s = today.getSeconds()
-      var p = 'am'
-      // h = this.parsetime(h)
       m = this.parsetime(m)
       s = this.parsetime(s)
 
-      if (this.hour12) {
-        // if (h > 12) {
-        //   p = 'pm'
-        // }
-        h = h % 12 || 12
-        this.clock = h + ":" + m + ":" + s // + p
-      } else {
-        this.clock = h + ":" + m + ":" + s
+      if (h >= 12) {
+        this.pm = true
       }
 
+      if (this.prefs.hour12) {
+        h = h % 12 || 12
+      }
+
+      this.clock = h + ":" + m + ":" + s
       var t = setTimeout(this.time, 500)
     },
 
@@ -85,29 +94,76 @@ new Vue({
       return i
     },
 
-    parseday: function() {
+    parsedate: function() {
       switch (this.weekday) {
           case 0:
-              this.weekday = "Sun";
-              break;
+              this.weekday = "Sun"
+              break
           case 1:
-              this.weekday = "Mon";
-              break;
+              this.weekday = "Mon"
+              break
           case 2:
-              this.weekday = "Tue";
+              this.weekday = "Tue"
               break;
           case 3:
-              this.weekday = "Wed";
+              this.weekday = "Wed"
               break;
           case 4:
-              this.weekday = "Thu";
+              this.weekday = "Thu"
               break;
           case 5:
-              this.weekday = "Fri";
+              this.weekday = "Fri"
               break;
           case 6:
-              this.weekday = "Sat";
+              this.weekday = "Sat"
               break;
+      }
+
+      switch (this.month) {
+          case 0:
+              this.month = "Jan"
+              break
+          case 1:
+              this.month = "Feb"
+              break
+          case 2:
+              this.month = "Mar"
+              break
+          case 3:
+              this.month = "Apr"
+              break
+          case 4:
+              this.month = "May"
+              break
+          case 5:
+              this.month = "Jun"
+              break
+          case 6:
+              this.month = "Jul"
+              break
+          case 7:
+              this.month = "Aug"
+              break
+          case 8:
+              this.month = "Sep"
+              break
+          case 9:
+              this.month = "Oct"
+              break
+          case 10:
+              this.month = "Nov"
+              break
+          case 11:
+              this.month = "Dec"
+              break
+      }
+    },
+
+    settings: function() {
+      var result = localStorage.getItem('preferences')
+      this.prefs = JSON.parse(result)
+      if (this.prefs == null) {
+        this.prefs = { hour12: true, farenheit: true }
       }
     }
   }
