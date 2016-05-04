@@ -21,13 +21,14 @@
       </div>
     </div>
     <!-- main content -->
-    <div class="main container">
-      <h2>{{ clock }}
+    <div class="container">
+      <h2 class="main">{{ clock }}
         <sup class="sup" v-if="hour12">{{ pm ? 'PM' : 'AM'}}</sup>
       </h2>
     </div>
     <div class="container">
       <h1 class="title cell">{{ city.display_location.city }}</h1>
+      <span>{{ weekday }}, {{ month }}, {{ date }}</span>
     </div>
     <div class="container horizontal">
         <h2 v-if="farenheit" class="main cell">{{ city.temp_f | rounded }}<i class="icon-farenheit"></i></h2>

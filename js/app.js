@@ -9,6 +9,8 @@ new Vue({
     city: {},
     clock: '00:00:00',
     weekday: new Date().getDay(),
+    month: new Date().getMonth(),
+    date: new Date().getDate(),
     hour12: true,
     farenheit: true,
     pm: false,
@@ -17,7 +19,7 @@ new Vue({
 
   ready: function() {
     this.geolocation()
-    this.parseday()
+    this.parsedate()
   },
 
   watch: {
@@ -84,29 +86,68 @@ new Vue({
       return i
     },
 
-    parseday: function() {
+    parsedate: function() {
       switch (this.weekday) {
           case 0:
-              this.weekday = "Sun";
-              break;
+              this.weekday = "Sun"
+              break
           case 1:
-              this.weekday = "Mon";
-              break;
+              this.weekday = "Mon"
+              break
           case 2:
-              this.weekday = "Tue";
+              this.weekday = "Tue"
               break;
           case 3:
-              this.weekday = "Wed";
+              this.weekday = "Wed"
               break;
           case 4:
-              this.weekday = "Thu";
+              this.weekday = "Thu"
               break;
           case 5:
-              this.weekday = "Fri";
+              this.weekday = "Fri"
               break;
           case 6:
-              this.weekday = "Sat";
+              this.weekday = "Sat"
               break;
+      }
+      
+      switch (this.month) {
+          case 0:
+              this.month = "Jan"
+              break
+          case 1:
+              this.month = "Feb"
+              break
+          case 2:
+              this.month = "Mar"
+              break
+          case 3:
+              this.month = "Apr"
+              break
+          case 4:
+              this.month = "May"
+              break
+          case 5:
+              this.month = "Jun"
+              break
+          case 6:
+              this.month = "Jul"
+              break
+          case 7:
+              this.month = "Aug"
+              break
+          case 8:
+              this.month = "Sep"
+              break
+          case 9:
+              this.month = "Oct"
+              break
+          case 10:
+              this.month = "Nov"
+              break
+          case 11:
+              this.month = "Dec"
+              break
       }
     }
   }
