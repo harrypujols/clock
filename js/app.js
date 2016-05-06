@@ -6,7 +6,7 @@ new Vue({
     lat: '40.71',
     lon: '-74.01',
     appid: '09d7033777846fa8',
-    city: {},
+    current: {},
     clock: '00:00:00',
     weekday: new Date().getDay(),
     month: new Date().getMonth(),
@@ -36,9 +36,9 @@ new Vue({
       localStorage.setItem('preferences', JSON.stringify(this.prefs))
     },
 
-    'city.icon_url': function(result) {
-      if( result.indexOf('nt') >= 0 && this.city.icon == 'clear' ) {
-        this.city.icon = 'moon'
+    'current.icon_url': function(result) {
+      if( result.indexOf('nt') >= 0 && this.current.icon == 'clear' ) {
+        this.current.icon = 'moon'
       }
     }
   },
@@ -55,7 +55,7 @@ new Vue({
         url: this.url + this.appid + '/conditions/q/' + this.lat + ',' + this.lon + '.json',
         method: 'GET'
      }).then(function (result) {
-        this.city = result.data.current_observation
+        this.current = result.data.current_observation
       }, function (response) {
         console.log('fail')
       })
