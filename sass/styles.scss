@@ -1,12 +1,13 @@
 @import "normalize";
 @import "icons";
 
+$base-font-size: 16px;
+
 @function vw($size) {
   $vw-context: (1000*.01) * 1px;
   @return ($size/$vw-context) * 1vw;
 }
 
-$base-font-size: 16px;
 @function rem($size) {
   $remSize: $size / $base-font-size;
   @return $remSize * 1rem;
@@ -14,9 +15,11 @@ $base-font-size: 16px;
 
 html,
 body {
-  font-size: vw(16px);
   height: 100%;
   position: relative;
+  @media (min-width: rem(1200px)) {
+   font-size: vw($base-font-size);
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
