@@ -17,7 +17,7 @@ html,
 body {
   height: 100%;
   position: relative;
-  @media (min-width: rem(1200px)) {
+  @media (min-width: 1200px) {
    font-size: vw($base-font-size);
   }
 }

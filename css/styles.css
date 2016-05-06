@@ -460,7 +460,7 @@ html,
 body {
   height: 100%;
   position: relative; }
-  @media (min-width: 75rem) {
+  @media (min-width: 1200px) {
     html,
     body {
       font-size: 1.6vw; } }
