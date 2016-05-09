@@ -29,7 +29,7 @@
     </div>
     <div class="container">
       <b class="title cell">{{ current.display_location.city }}</b>
-      <span>{{ weekday }}, {{ month }} {{ date }}</span>
+      <span>{{ forecast[0].date.weekday_short }}, {{ forecast[0].date.monthname }} {{ forecast[0].date.day}}</span>
     </div>
     <div class="container horizontal">
         <h2 v-if="prefs.fahrenheit" class="main cell">
