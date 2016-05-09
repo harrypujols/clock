@@ -84,8 +84,8 @@ new Vue({
       var h = today.getHours()
       var m = today.getMinutes()
       var s = today.getSeconds()
-      m = this.parsetime(m)
-      s = this.parsetime(s)
+      m = this.addzero(m)
+      s = this.addzero(s)
 
       if (h >= 12) {
         this.pm = true
@@ -99,7 +99,7 @@ new Vue({
       var t = setTimeout(this.time, 500)
     },
 
-    parsetime: function(i) {
+    addzero: function(i) {
       if (i < 10) {i = "0" + i}
       return i
     },
