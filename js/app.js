@@ -6,20 +6,18 @@ new Vue({
     lat: '40.71',
     lon: '-74.01',
     appid: '09d7033777846fa8',
-    city: {},
+    current: {},
+    forecast: {},
     clock: '00:00:00',
-    weekday: new Date().getDay(),
-    month: new Date().getMonth(),
-    date: new Date().getDate(),
     prefs: {},
     pm: false,
-    expand: false
+    expand: false,
+    loaded: false
   },
 
   ready: function() {
     this.settings()
     this.geolocation()
-    this.parsedate()
   },
 
   watch: {
@@ -28,7 +26,7 @@ new Vue({
       this.time()
     },
 
-    'prefs.farenheit': function() {
+    'prefs.fahrenheit': function() {
       localStorage.setItem('preferences', JSON.stringify(this.prefs))
     },
 
@@ -36,9 +34,9 @@ new Vue({
       localStorage.setItem('preferences', JSON.stringify(this.prefs))
     },
 
-    'city.icon_url': function(result) {
-      if( result.indexOf('nt') >= 0 && this.city.icon == 'clear' ) {
-        this.city.icon = 'moon'
+    'current.icon_url': function(result) {
+      if( result.indexOf('nt') >= 0 && this.current.icon == 'clear' ) {
+        this.current.icon = 'moon'
       }
     }
   },
@@ -55,7 +53,17 @@ new Vue({
         url: this.url + this.appid + '/conditions/q/' + this.lat + ',' + this.lon + '.json',
         method: 'GET'
      }).then(function (result) {
-        this.city = result.data.current_observation
+        this.current = result.data.current_observation
+      }, function (response) {
+        console.log('fail')
+      }),
+
+      this.$http({
+        url: this.url + this.appid + '/forecast/q/' + this.lat + ',' + this.lon + '.json',
+        method: 'GET'
+     }).then(function (result) {
+        this.forecast = result.data.forecast.simpleforecast.forecastday
+        this.loaded = true
       }, function (response) {
         console.log('fail')
       })
@@ -74,8 +82,8 @@ new Vue({
       var h = today.getHours()
       var m = today.getMinutes()
       var s = today.getSeconds()
-      m = this.parsetime(m)
-      s = this.parsetime(s)
+      m = this.addzero(m)
+      s = this.addzero(s)
 
       if (h >= 12) {
         this.pm = true
@@ -89,81 +97,16 @@ new Vue({
       var t = setTimeout(this.time, 500)
     },
 
-    parsetime: function(i) {
+    addzero: function(i) {
       if (i < 10) {i = "0" + i}
       return i
-    },
-
-    parsedate: function() {
-      switch (this.weekday) {
-          case 0:
-              this.weekday = "Sun"
-              break
-          case 1:
-              this.weekday = "Mon"
-              break
-          case 2:
-              this.weekday = "Tue"
-              break;
-          case 3:
-              this.weekday = "Wed"
-              break;
-          case 4:
-              this.weekday = "Thu"
-              break;
-          case 5:
-              this.weekday = "Fri"
-              break;
-          case 6:
-              this.weekday = "Sat"
-              break;
-      }
-
-      switch (this.month) {
-          case 0:
-              this.month = "Jan"
-              break
-          case 1:
-              this.month = "Feb"
-              break
-          case 2:
-              this.month = "Mar"
-              break
-          case 3:
-              this.month = "Apr"
-              break
-          case 4:
-              this.month = "May"
-              break
-          case 5:
-              this.month = "Jun"
-              break
-          case 6:
-              this.month = "Jul"
-              break
-          case 7:
-              this.month = "Aug"
-              break
-          case 8:
-              this.month = "Sep"
-              break
-          case 9:
-              this.month = "Oct"
-              break
-          case 10:
-              this.month = "Nov"
-              break
-          case 11:
-              this.month = "Dec"
-              break
-      }
     },
 
     settings: function() {
       var result = localStorage.getItem('preferences')
       this.prefs = JSON.parse(result)
       if (this.prefs == null) {
-        this.prefs = { hour12: true, farenheit: true }
+        this.prefs = { hour12: true, fahrenheit: true }
       }
     }
   }

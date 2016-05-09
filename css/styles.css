@@ -412,7 +412,7 @@ textarea {
 .icon-partlycloudy:before {
   content: "\f031"; }
 
-.icon-celcius:before {
+.icon-celsius:before {
   content: "\f03c"; }
 
 .icon-overcast:before, .icon-cloudy:before,
@@ -423,7 +423,7 @@ textarea {
 .icon-degree:before {
   content: "\f042"; }
 
-.icon-farenheit:before {
+.icon-fahrenheit:before {
   content: "\f045"; }
 
 .icon-sunrise:before {
@@ -456,6 +456,15 @@ textarea {
 .icon-cog:before {
   content: "\e023"; }
 
+html,
+.app {
+  height: 100%;
+  position: relative; }
+  @media (min-width: 1200px) {
+    html,
+    .app {
+      font-size: 1.6vw; } }
+
 h1, h2, h3, h4, h5, h6 {
   margin: 0; }
 
@@ -465,10 +474,16 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1rem; }
 
 .container {
-  max-width: 1200px;
+  max-width: 75rem;
   margin: 0 auto;
   padding: 0 10px;
   text-align: center; }
+
+.vertical {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
 
 .horizontal {
   display: flex;
@@ -489,6 +504,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .cell {
   margin-right: 2%; }
+
+.vertical-cell {
+  margin: 1rem 0; }
 
 .inverted {
   color: white;
@@ -515,7 +533,8 @@ h1, h2, h3, h4, h5, h6 {
 #toggleclass {
   display: none; }
   #toggleclass + label {
-    cursor: pointer; }
+    cursor: pointer;
+    font-size: 16px; }
   #toggleclass + label:active {
     color: grey; }
 

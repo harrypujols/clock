@@ -2,9 +2,24 @@
 @import "icons";
 
 $base-font-size: 16px;
+
+@function vw($size) {
+  $vw-context: (1000*.01) * 1px;
+  @return ($size/$vw-context) * 1vw;
+}
+
 @function rem($size) {
   $remSize: $size / $base-font-size;
   @return $remSize * 1rem;
+}
+
+html,
+.app {
+  height: 100%;
+  position: relative;
+  @media (min-width: 1200px) {
+   font-size: vw($base-font-size);
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -18,10 +33,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: rem(1200px);
   margin: 0 auto;
   padding: 0 10px;
   text-align: center;
+}
+
+.vertical {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .horizontal {
@@ -47,6 +69,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .cell {
   margin-right: 2%;
+}
+
+.vertical-cell {
+  margin: 1rem 0;
 }
 
 .inverted {
@@ -81,6 +107,7 @@ h1, h2, h3, h4, h5, h6 {
 
   + label {
     cursor: pointer;
+    font-size: $base-font-size;
   }
 
   + label:active {

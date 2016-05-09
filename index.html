@@ -5,46 +5,60 @@
   <title>Weather</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body id="app">
-<input type="checkbox" id="toggleclass" v-model="expand">
-<label for="toggleclass"><i class="icon-cog"></i></label>
-<div id="outer-wrapper" v-cloak>
-  <div id="wrapper" v-bind:class="{ expanded : expand }">
-    <div id="pushover-menu">
-      <div class="pref-panel">
-        <input type="checkbox" id="toggletime" v-model="prefs.hour12" class="pref">
-        <label for="toggletime"><span>24</span><span>12</span></label>
-      </div>
-      <div class="pref-panel">
-        <input type="checkbox" id="toggledegree" v-model="prefs.farenheit" class="pref">
-        <label for="toggledegree"><span>C</span><span>F</span></label>
-      </div>
-    </div>
-    <!-- main content -->
-    <div class="container">
-      <h2 class="main">{{ clock }}
-        <sup class="sup" v-if="prefs.hour12">{{ pm ? 'PM' : 'AM'}}</sup>
-      </h2>
-    </div>
-    <div class="container">
-      <b class="title cell">{{ city.display_location.city }}</b>
-      <span>{{ weekday }}, {{ month }} {{ date }}</span>
-    </div>
-    <div class="container horizontal">
-        <h2 v-if="prefs.farenheit" class="main cell">
-          {{ city.temp_f | rounded }}<i class="icon-farenheit"></i>
-        </h2>
-        <h2 v-else class="main cell">
-          {{ city.temp_c | rounded }}<i class="icon-celcius"></i>
-        </h2>
-      <div class="icon cell">
-        <div class="weather"><i class="icon-{{ city.icon }}"></i></div>
-        <div>&nbsp;<i class="icon-humidity"></i>&nbsp;{{ city.relative_humidity }}</div>
-      </div>
-    </div>
-    <!-- main content -->
+<body id="app" class="app">
+  <div v-if="!loaded">
+    <h1>Loading...</h1>
   </div>
-</div>
+  <div v-else class="app">
+    <input type="checkbox" id="toggleclass" v-model="expand">
+    <label for="toggleclass"><i class="icon-cog"></i></label>
+    <div v-if="loaded" id="outer-wrapper" class="vertical" v-cloak>
+      <div id="wrapper" v-bind:class="{ expanded : expand }">
+        <div id="pushover-menu">
+          <div class="pref-panel">
+            <input type="checkbox" id="toggletime" v-model="prefs.hour12" class="pref">
+            <label for="toggletime"><span>24</span><span>12</span></label>
+          </div>
+          <div class="pref-panel">
+            <input type="checkbox" id="toggledegree" v-model="prefs.fahrenheit" class="pref">
+            <label for="toggledegree"><span>C</span><span>F</span></label>
+          </div>
+        </div>
+        <!-- main content -->
+        <div class="container">
+          <h2 class="main">
+            {{ clock }}
+            <sup class="sup" v-if="prefs.hour12">{{ pm ? 'PM' : 'AM'}}</sup>
+          </h2>
+        </div>
+        <div class="container">
+          <b class="title cell">{{ current.display_location.city }}</b>
+          <span>{{ forecast[0].date.weekday_short }}, {{ forecast[0].date.monthname }} {{ forecast[0].date.day}}</span>
+        </div>
+        <div class="container horizontal">
+            <h2 v-if="prefs.fahrenheit" class="main cell">
+              {{ current.temp_f | rounded }}<i class="icon-fahrenheit"></i>
+            </h2>
+            <h2 v-else class="main cell">
+              {{ current.temp_c | rounded }}<i class="icon-celsius"></i>
+            </h2>
+          <div class="icon cell">
+            <div class="weather"><i class="icon-{{ current.icon }}"></i></div>
+            <div><i class="icon-humidity"></i>&nbsp;{{ current.relative_humidity }}</div>
+          </div>
+          <div v-if="prefs.fahrenheit" class="min-max">
+            <div class="vertical-cell"><i class="icon-thermometer"></i>&nbsp;{{ forecast[0].low.fahrenheit }}<i class="icon-degree"></i></div>
+            <div class="vertical-cell"><i class="icon-mercury"></i>&nbsp;{{ forecast[0].high.fahrenheit }}<i class="icon-degree"></i></div>
+          </div>
+          <div v-else class="min-max">
+            <div class="vertical-cell"><i class="icon-thermometer"></i>&nbsp;{{ forecast[0].low.celsius }}<i class="icon-degree"></i></div>
+            <div class="vertical-cell"><i class="icon-mercury"></i>&nbsp;{{ forecast[0].high.celsius }}<i class="icon-degree"></i></div>
+          </div>
+        </div>
+        <!-- main content -->
+      </div>
+    </div>
+  </div>
  <script src="js/vue.js"></script>
  <script src="js/vue-resource.js"></script>
  <script src="js/app.js"></script>
