@@ -43,6 +43,11 @@
         <div>&nbsp;<i class="icon-humidity"></i>&nbsp;{{ current.relative_humidity }}</div>
       </div>
     </div>
+    <div class="container">
+      <span><i class="icon-thermometer"></i> {{ forecast[0].low.fahrenheit }}<i class="icon-degree"></i></span>
+      <span><i class="icon-mercury"></i> {{ forecast[0].high.fahrenheit }}<i class="icon-degree"></i></span>
+      <span><i class="icon-{{ forecast[0].icon }}"></i></span>
+    </div>
     <!-- main content -->
   </div>
 </div>

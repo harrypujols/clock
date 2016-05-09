@@ -7,6 +7,7 @@ new Vue({
     lon: '-74.01',
     appid: '09d7033777846fa8',
     current: {},
+    forecast: {},
     clock: '00:00:00',
     weekday: new Date().getDay(),
     month: new Date().getMonth(),
@@ -56,6 +57,15 @@ new Vue({
         method: 'GET'
      }).then(function (result) {
         this.current = result.data.current_observation
+      }, function (response) {
+        console.log('fail')
+      }),
+
+      this.$http({
+        url: this.url + this.appid + '/forecast/q/' + this.lat + ',' + this.lon + '.json',
+        method: 'GET'
+     }).then(function (result) {
+        this.forecast = result.data.forecast.simpleforecast.forecastday
       }, function (response) {
         console.log('fail')
       })
