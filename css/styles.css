@@ -505,6 +505,9 @@ h1, h2, h3, h4, h5, h6 {
 .cell {
   margin-right: 2%; }
 
+.vertical-cell {
+  margin: 1rem 0; }
+
 .inverted {
   color: white;
   background: black; }
