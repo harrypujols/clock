@@ -26,6 +26,10 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
+#app {
+  background-color: #f2f2f2;
+}
+
 .sup {
   top: -2.5rem;
   left: -1rem;
@@ -108,7 +112,6 @@ h1, h2, h3, h4, h5, h6 {
 
   + label {
     cursor: pointer;
-    font-size: $base-font-size;
   }
 
   + label:active {
