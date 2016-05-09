@@ -11,7 +11,8 @@ new Vue({
     clock: '00:00:00',
     prefs: {},
     pm: false,
-    expand: false
+    expand: false,
+    loaded: false
   },
 
   ready: function() {
@@ -62,6 +63,7 @@ new Vue({
         method: 'GET'
      }).then(function (result) {
         this.forecast = result.data.forecast.simpleforecast.forecastday
+        this.loaded = true
       }, function (response) {
         console.log('fail')
       })
