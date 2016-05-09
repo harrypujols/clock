@@ -5,11 +5,11 @@
   <title>Weather</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body id="app">
+<body id="app" class="app">
   <div v-if="!loaded">
     <h1>Loading...</h1>
   </div>
-  <div v-else>
+  <div v-else class="app">
     <input type="checkbox" id="toggleclass" v-model="expand">
     <label for="toggleclass"><i class="icon-cog"></i></label>
     <div v-if="loaded" id="outer-wrapper" class="vertical" v-cloak>

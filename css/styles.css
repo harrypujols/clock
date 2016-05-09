@@ -457,12 +457,12 @@ textarea {
   content: "\e023"; }
 
 html,
-body {
+.app {
   height: 100%;
   position: relative; }
   @media (min-width: 1200px) {
     html,
-    body {
+    .app {
       font-size: 1.6vw; } }
 
 h1, h2, h3, h4, h5, h6 {
