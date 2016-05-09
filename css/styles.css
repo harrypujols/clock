@@ -412,7 +412,7 @@ textarea {
 .icon-partlycloudy:before {
   content: "\f031"; }
 
-.icon-celcius:before {
+.icon-celsius:before {
   content: "\f03c"; }
 
 .icon-overcast:before, .icon-cloudy:before,
@@ -423,7 +423,7 @@ textarea {
 .icon-degree:before {
   content: "\f042"; }
 
-.icon-farenheit:before {
+.icon-fahrenheit:before {
   content: "\f045"; }
 
 .icon-sunrise:before {

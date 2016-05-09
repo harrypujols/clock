@@ -29,7 +29,7 @@ new Vue({
       this.time()
     },
 
-    'prefs.farenheit': function() {
+    'prefs.fahrenheit': function() {
       localStorage.setItem('preferences', JSON.stringify(this.prefs))
     },
 
@@ -173,7 +173,7 @@ new Vue({
       var result = localStorage.getItem('preferences')
       this.prefs = JSON.parse(result)
       if (this.prefs == null) {
-        this.prefs = { hour12: true, farenheit: true }
+        this.prefs = { hour12: true, fahrenheit: true }
       }
     }
   }
