@@ -456,12 +456,10 @@ textarea {
 .icon-cog:before {
   content: "\e023"; }
 
-html,
 .app {
   height: 100%;
   position: relative; }
   @media (min-width: 1200px) {
-    html,
     .app {
       font-size: 1.6vw; } }
 
@@ -497,10 +495,11 @@ h1, h2, h3, h4, h5, h6 {
 .main {
   font-size: 5rem; }
 
+.center {
+  text-align: center; }
+
 .icon {
-  font-size: 1.2rem;
-  align-self: flex-start;
-  margin-top: .5rem; }
+  font-size: 1.2rem; }
 
 .icon .weather {
   font-size: 2rem;
