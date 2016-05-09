@@ -40,15 +40,15 @@
         </h2>
       <div class="icon cell">
         <div class="weather"><i class="icon-{{ current.icon }}"></i></div>
-        <div>&nbsp;<i class="icon-humidity"></i>&nbsp;{{ current.relative_humidity }}</div>
+        <div><i class="icon-humidity"></i>&nbsp;{{ current.relative_humidity }}</div>
       </div>
       <div v-if="prefs.fahrenheit" class="min-max">
-        <div class="vertical-cell"><i class="icon-thermometer"></i> {{ forecast[0].low.fahrenheit }}<i class="icon-degree"></i></div>
-        <div class="vertical-cell"><i class="icon-mercury"></i> {{ forecast[0].high.fahrenheit }}<i class="icon-degree"></i></div>
+        <div class="vertical-cell"><i class="icon-thermometer"></i>&nbsp;{{ forecast[0].low.fahrenheit }}<i class="icon-degree"></i></div>
+        <div class="vertical-cell"><i class="icon-mercury"></i>&nbsp;{{ forecast[0].high.fahrenheit }}<i class="icon-degree"></i></div>
       </div>
       <div v-else class="min-max">
-        <div class="vertical-cell"><i class="icon-thermometer"></i> {{ forecast[0].low.celsius }}<i class="icon-degree"></i></div>
-        <div class="vertical-cell"><i class="icon-mercury"></i> {{ forecast[0].high.celsius }}<i class="icon-degree"></i></div>
+        <div class="vertical-cell"><i class="icon-thermometer"></i>&nbsp;{{ forecast[0].low.celsius }}<i class="icon-degree"></i></div>
+        <div class="vertical-cell"><i class="icon-mercury"></i>&nbsp;{{ forecast[0].high.celsius }}<i class="icon-degree"></i></div>
       </div>
     </div>
     <!-- main content -->
