@@ -530,7 +530,8 @@ h1, h2, h3, h4, h5, h6 {
 #toggleclass {
   display: none; }
   #toggleclass + label {
-    cursor: pointer; }
+    cursor: pointer;
+    font-size: 16px; }
   #toggleclass + label:active {
     color: grey; }
 
