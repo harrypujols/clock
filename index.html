@@ -6,8 +6,10 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body id="app" class="app">
-  <div v-if="!loaded" class="vertical">
-    <h1 class="center">Loading...</h1>
+  <div v-if="!loaded" class="vertical intro">
+    <h1 class="center">Clock</h1>
+    <img src="img/time.svg" alt="clock">
+    <small class="center">By Harry</small>
   </div>
   <div v-else class="app">
     <input type="checkbox" id="toggleclass" v-model="expand">
