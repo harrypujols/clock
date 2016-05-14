@@ -1,5 +1,5 @@
 # Clock
-### My clock and weather app
+### Harry's own clock and weather app
 
 Since I'm using a private key from Weather Underground to get its API, please don't run this as your own clock page. 
 
