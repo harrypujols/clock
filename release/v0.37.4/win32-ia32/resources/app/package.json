@@ -1,0 +1,16 @@
+{
+  "name": "clock",
+  "version": "1.0.0",
+  "description": "Harry's Clock App",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js"
+  },
+  "keywords": [
+    "Electron",
+    "harry",
+    "clock"
+  ],
+  "author": "Harry Pujols",
+  "license": "CC0-1.0"
+}
