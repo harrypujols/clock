@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="app">
 <head>
   <meta charset="UTF-8">
-  <title>Weather</title>
+  <title>Clock</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body id="app" class="app">
-  <div v-if="!loaded">
-    <h1>Loading...</h1>
+  <div v-if="!loaded" class="vertical intro">
+    <h1 class="center">Clock</h1>
+    <img src="img/time.svg" alt="clock">
+    <small class="center">By Harry</small>
   </div>
   <div v-else class="app">
     <input type="checkbox" id="toggleclass" v-model="expand">
@@ -46,11 +48,11 @@
             <div class="weather"><i class="icon-{{ current.icon }}"></i></div>
             <div><i class="icon-humidity"></i>&nbsp;{{ current.relative_humidity }}</div>
           </div>
-          <div v-if="prefs.fahrenheit" class="min-max">
+          <div v-if="prefs.fahrenheit" class="icon cell">
             <div class="vertical-cell"><i class="icon-thermometer"></i>&nbsp;{{ forecast[0].low.fahrenheit }}<i class="icon-degree"></i></div>
             <div class="vertical-cell"><i class="icon-mercury"></i>&nbsp;{{ forecast[0].high.fahrenheit }}<i class="icon-degree"></i></div>
           </div>
-          <div v-else class="min-max">
+          <div v-else class="icon cell">
             <div class="vertical-cell"><i class="icon-thermometer"></i>&nbsp;{{ forecast[0].low.celsius }}<i class="icon-degree"></i></div>
             <div class="vertical-cell"><i class="icon-mercury"></i>&nbsp;{{ forecast[0].high.celsius }}<i class="icon-degree"></i></div>
           </div>

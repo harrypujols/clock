@@ -456,21 +456,23 @@ textarea {
 .icon-cog:before {
   content: "\e023"; }
 
-html,
 .app {
   height: 100%;
   position: relative; }
   @media (min-width: 1200px) {
-    html,
     .app {
       font-size: 1.6vw; } }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0; }
 
+#app {
+  background-color: #f2f2f2; }
+
 .sup {
   top: -2.5rem;
   left: -1rem;
+  margin-right: -2rem;
   font-size: 1rem; }
 
 .container {
@@ -493,10 +495,11 @@ h1, h2, h3, h4, h5, h6 {
 .main {
   font-size: 5rem; }
 
+.center {
+  text-align: center; }
+
 .icon {
-  font-size: 1.2rem;
-  align-self: flex-start;
-  margin-top: .5rem; }
+  font-size: 1.2rem; }
 
 .icon .weather {
   font-size: 2rem;
@@ -511,6 +514,13 @@ h1, h2, h3, h4, h5, h6 {
 .inverted {
   color: white;
   background: black; }
+
+.intro {
+  text-align: center; }
+  .intro img {
+    display: block;
+    width: 5rem;
+    margin: 1rem auto; }
 
 #outer-wrapper {
   position: relative;
@@ -533,8 +543,7 @@ h1, h2, h3, h4, h5, h6 {
 #toggleclass {
   display: none; }
   #toggleclass + label {
-    cursor: pointer;
-    font-size: 16px; }
+    cursor: pointer; }
   #toggleclass + label:active {
     color: grey; }
 
