@@ -1,12 +1,18 @@
 {
-  "name": "weather",
+  "name": "clock",
   "version": "1.0.0",
   "description": "Harry's Clock App",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron ./app/main.js",
+    "build": "electron-packager ./app $npm_package_productName --platform=darwin --arch=x64 --ignore=node_modules --icon=icons/icon --overwrite --out=./release"
   },
-  "dependencies": {
+  "author": "Harry",
+  "license": "GNU",
+  "devDependencies": {
+    "electron-packager": "^7.0.1",
+    "electron-prebuilt": "^1.2.3",
+    "gulp-electron": "^0.1.2",
     "browser-sync": "^2.11.2",
     "gulp": "^3.9.1",
     "gulp-sass": "^2.2.0"
