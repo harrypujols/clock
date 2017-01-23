@@ -10,11 +10,11 @@
   "author": "Harry",
   "license": "GNU",
   "devDependencies": {
-    "electron-packager": "^7.0.1",
+    "electron-packager": "^8.5.1",
     "electron-prebuilt": "^1.2.3",
     "gulp-electron": "^0.1.2",
     "browser-sync": "^2.11.2",
     "gulp": "^3.9.1",
-    "gulp-sass": "^2.2.0"
+    "gulp-sass": "^3.1.0"
   }
 }

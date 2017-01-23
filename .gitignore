@@ -4,3 +4,4 @@ node_modules
 cache
 darwin-x64
 win32-ia32
+yarn.lock

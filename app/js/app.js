@@ -17,14 +17,16 @@ new Vue({
 
   ready: function() {
     this.settings()
-    this.geolocation()
+    // this.geolocation()
+    this.update()
+    this.time()
   },
 
   watch: {
-    lat: function() {
-      this.update()
-      this.time()
-    },
+    // lat: function() {
+    //   this.update()
+    //   this.time()
+    // },
 
     'prefs.fahrenheit': function() {
       localStorage.setItem('preferences', JSON.stringify(this.prefs))
